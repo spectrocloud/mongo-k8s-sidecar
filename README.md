@@ -31,6 +31,9 @@ There you will also find some helper scripts to test out creating the replica se
 | MONGO_SSL_ENABLED | NO | false | Enable SSL for MongoDB. |
 | MONGO_SSL_ALLOW_INVALID_CERTIFICATES | NO | true | This should be set to true if you want to use self signed certificates. |
 | MONGO_SSL_ALLOW_INVALID_HOSTNAMES | NO | true | This should be set to true if your certificates FQDN's do not match the host name set in your replset. |
+| MONGO_SSL_CACERT | NO |  | path to CA cert required if using self signed cert and requireSSL is set on server |
+| MONGO_SSL_CERT | NO |  | path to Client Certificate, required if using self signed cert and requireSSL is set on server |
+| MONGO_SSL_KEY | NO |  | path to Client certificate key, required if using self signed cert and requireSSL is set on server |
 
 In its default configuration the sidecar uses the pods' IPs for the MongodDB replica names. Here is a trimmed example:
 ```

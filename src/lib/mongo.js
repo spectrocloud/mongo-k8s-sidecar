@@ -26,6 +26,9 @@ var getDb = function (host, done) {
       ssl: config.mongoSSLEnabled,
       sslAllowInvalidCertificates: config.mongoSSLAllowInvalidCertificates,
       sslAllowInvalidHostnames: config.mongoSSLAllowInvalidHostnames,
+      sslCA: config.mongoSSLCaCert,
+      sslCert: config.mongoSSLCert,
+      sslKey: config.mongoSSLKey,
     };
   }
 

@@ -1,4 +1,5 @@
 var dns = require('dns');
+var fs = require('fs')
 
 var getMongoPodLabels = function() {
   return process.env.MONGO_SIDECAR_POD_LABELS || false;
@@ -81,6 +82,39 @@ var getMongoDbPort = function() {
   return mongoPort;
 };
 
+function readfile(path, data) {
+  data = fs.readFileSync(path, 'utf8')
+  // console.log("read file ", path, data)
+  return data
+}
+
+var getSSLKEY = function() {
+  var path = process.env.MONGO_SSL_KEY || ''
+  var data
+  if (path.length > 0) {
+    return readfile(path, data)
+  }
+  return data
+}
+
+var getSSLCERT = function() {
+  var path = process.env.MONGO_SSL_CERT || ''
+  var data
+  if (path.length > 0) {
+    return readfile(path, data)
+  }
+  return data
+}
+
+var getSSLCACERT = function() {
+  var path = process.env.MONGO_SSL_CACERT || ''
+  var data
+  if (path.length > 0) {
+    return readfile(path, data)
+  }
+  return data
+}
+
 /**
  *  @returns boolean to define the RS as a configsvr or not. Default is false
  */
@@ -113,6 +147,9 @@ module.exports = {
   mongoSSLEnabled: stringToBool(process.env.MONGO_SSL_ENABLED),
   mongoSSLAllowInvalidCertificates: stringToBool(process.env.MONGO_SSL_ALLOW_INVALID_CERTIFICATES),
   mongoSSLAllowInvalidHostnames: stringToBool(process.env.MONGO_SSL_ALLOW_INVALID_HOSTNAMES),
+  mongoSSLCaCert: getSSLCACERT(), 
+  mongoSSLCert: getSSLCERT(),
+  mongoSSLKey: getSSLKEY(),
   env: process.env.NODE_ENV || 'local',
   mongoPodLabels: getMongoPodLabels(),
   mongoPodLabelCollection: getMongoPodLabelCollection(),
