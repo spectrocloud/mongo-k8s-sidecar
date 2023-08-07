@@ -1,0 +1,2077 @@
+
+> mongo-k8s-sidecar@0.1.0 start
+> forever src/index.js
+
+[33mwarn[39m:    --minUptime not set. Defaulting to: 1000ms
+[33mwarn[39m:    --spinSleepTime not set. Your script will exit if it does not stay up for at least 1000ms
+(node:17) Warning: Accessing non-existent property 'padLevels' of module exports inside circular dependency
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:17) Warning: Accessing non-existent property 'padLevels' of module exports inside circular dependency
+Using mongo port: 27017
+Starting up mongo-k8s-sidecar
+The cluster domain 'cluster.local' was successfully verified.
+🚀 ~ file: mongo.js:9 ~ getDb ~ host: [Function (anonymous)]
+🚀 ~ file: mongo.js:21 ~ getDb ~ host: 127.0.0.1
+🚀 ~ file: mongo.js:33 ~ err: Error [MongoError]: failed to connect to server [127.0.0.1:27017] on first connect [Error: connect ECONNREFUSED 127.0.0.1:27017
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1595:16) {
+  name: 'MongoError'
+}]
+    at Pool.<anonymous> (/opt/cvallance/mongo-k8s-sidecar/node_modules/mongodb-core/lib/topologies/server.js:336:35)
+Error in workloop Error [MongoError]: failed to connect to server [127.0.0.1:27017] on first connect [Error: connect ECONNREFUSED 127.0.0.1:27017
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1595:16) {
+  name: 'MongoError'
+}]
+    at Pool.<anonymous> (/opt/cvallance/mongo-k8s-sidecar/node_modules/mongodb-core/lib/topologies/server.js:336:35)
+    at Pool.emit (node:events:514:28)
+    at Connection.<anonymous> (/opt/cvallance/mongo-k8s-sidecar/node_modules/mongodb-core/lib/connection/pool.js:280:12)
+    at Object.onceWrapper (node:events:629:26)
+    at Pool.emit (node:events:514:28)
+    at Connection.<anonymous> (/opt/cvallance/mongo-k8s-sidecar/node_modules/mongodb-core/lib/connection/pool.js:280:12)
+    at Object.onceWrapper (node:events:629:26)
+    at Connection.emit (node:events:514:28)
+    at Socket.<anonymous> (/opt/cvallance/mongo-k8s-sidecar/node_modules/mongodb-core/lib/connection/connection.js:189:49)
+    at Object.onceWrapper (node:events:629:26)
+    at Socket.emit (node:events:514:28)
+    at emitErrorNT (node:internal/streams/destroy:151:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:116:3)
+🚀 ~ file: worker.js:41 ~ workloop ~ err: Error [MongoError]: failed to connect to server [127.0.0.1:27017] on first connect [Error: connect ECONNREFUSED 127.0.0.1:27017
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1595:16) {
+  name: 'MongoError'
+}]
+    at Pool.<anonymous> (/opt/cvallance/mongo-k8s-sidecar/node_modules/mongodb-core/lib/topologies/server.js:336:35)
+    at Pool.emit (node:events:514:28)
+    at Connection.<anonymous> (/opt/cvallance/mongo-k8s-sidecar/node_modules/mongodb-core/lib/connection/pool.js:280:12)
+    at Object.onceWrapper (node:events:629:26)
+    at Connection.emit (node:events:514:28)
+    at Socket.<anonymous> (/opt/cvallance/mongo-k8s-sidecar/node_modules/mongodb-core/lib/connection/connection.js:189:49)
+    at Object.onceWrapper (node:events:629:26)
+    at Socket.emit (node:events:514:28)
+    at emitErrorNT (node:internal/streams/destroy:151:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:116:3)
+🚀 ~ file: worker.js:41 ~ workloop ~ results: [
+  [
+    { metadata: [Object], spec: [Object], status: [Object] },
+    { metadata: [Object], spec: [Object], status: [Object] },
+    { metadata: [Object], spec: [Object], status: [Object] }
+  ],
+  undefined
+]
+🚀 ~ file: worker.js:49 ~ workloop ~ err: Error [MongoError]: failed to connect to server [127.0.0.1:27017] on first connect [Error: connect ECONNREFUSED 127.0.0.1:27017
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1595:16) {
+  name: 'MongoError'
+}]
+    at Pool.<anonymous> (/opt/cvallance/mongo-k8s-sidecar/node_modules/mongodb-core/lib/topologies/server.js:336:35)
+    at Pool.emit (node:events:514:28)
+    at Connection.<anonymous> (/opt/cvallance/mongo-k8s-sidecar/node_modules/mongodb-core/lib/connection/pool.js:280:12)
+    at Object.onceWrapper (node:events:629:26)
+    at Connection.emit (node:events:514:28)
+    at Socket.<anonymous> (/opt/cvallance/mongo-k8s-sidecar/node_modules/mongodb-core/lib/connection/connection.js:189:49)
+    at Object.onceWrapper (node:events:629:26)
+    at Socket.emit (node:events:514:28)
+    at emitErrorNT (node:internal/streams/destroy:151:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:116:3)
+    at Connection.emit (node:events:514:28)
+    at Socket.<anonymous> (/opt/cvallance/mongo-k8s-sidecar/node_modules/mongodb-core/lib/connection/connection.js:189:49)
+    at Object.onceWrapper (node:events:629:26)
+    at Socket.emit (node:events:514:28)
+    at emitErrorNT (node:internal/streams/destroy:151:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:116:3)
+🚀 ~ file: mongo.js:9 ~ getDb ~ host: [Function (anonymous)]
+🚀 ~ file: mongo.js:21 ~ getDb ~ host: 127.0.0.1
+🚀 ~ file: mongo.js:33 ~ err: null
+Db.prototype.authenticate method will no longer be available in the next major release 3.x as MongoDB 3.6 will only allow auth against users in the admin db and will no longer allow multiple credentials on a socket. Please authenticate using MongoClient.connect with auth credentials.
+🚀 ~ file: worker.js:41 ~ workloop ~ err: null
+🚀 ~ file: worker.js:41 ~ workloop ~ results: [
+  [
+    { metadata: [Object], spec: [Object], status: [Object] },
+    { metadata: [Object], spec: [Object], status: [Object] },
+    { metadata: [Object], spec: [Object], status: [Object] }
+  ],
+  Db {
+    _events: [Object: null prototype] {},
+    _eventsCount: 0,
+    _maxListeners: undefined,
+    s: {
+      databaseName: 'admin',
+      dbCache: {},
+      children: [],
+      topology: [Server],
+      options: [Object],
+      logger: [Logger],
+      bson: BSON {},
+      authSource: undefined,
+      readPreference: undefined,
+      bufferMaxEntries: -1,
+      parentDb: null,
+      pkFactory: undefined,
+      nativeParser: undefined,
+      promiseLibrary: [Function: Promise],
+      noListener: false,
+      readConcern: undefined
+    },
+    serverConfig: [Getter],
+    bufferMaxEntries: [Getter],
+    databaseName: [Getter],
+    [Symbol(kCapture)]: false
+  }
+]
+🚀 ~ file: worker.js:54 ~ workloop ~ pods: [
+  {
+    metadata: {
+      name: 'mongo-0',
+      generateName: 'mongo-',
+      namespace: 'hubble-system',
+      uid: 'f40d7a69-b0a3-4a07-b463-c21b3d731f47',
+      resourceVersion: '1299696',
+      creationTimestamp: '2023-08-05T01:07:37Z',
+      labels: [Object],
+      annotations: [Object],
+      ownerReferences: [Array],
+      managedFields: [Array]
+    },
+    spec: {
+      volumes: [Array],
+      containers: [Array],
+      restartPolicy: 'Always',
+      terminationGracePeriodSeconds: 30,
+      dnsPolicy: 'ClusterFirst',
+      serviceAccountName: 'spectro-hubble',
+      serviceAccount: 'spectro-hubble',
+      nodeName: 'spectro-mgmt-cluster-cp-6zjwc',
+      securityContext: {},
+      hostname: 'mongo-0',
+      subdomain: 'mongo',
+      affinity: [Object],
+      schedulerName: 'default-scheduler',
+      tolerations: [Array],
+      priority: 0,
+      enableServiceLinks: true,
+      preemptionPolicy: 'PreemptLowerPriority'
+    },
+    status: {
+      phase: 'Running',
+      conditions: [Array],
+      hostIP: '10.10.165.12',
+      podIP: '172.16.14.170',
+      podIPs: [Array],
+      startTime: '2023-08-05T01:07:40Z',
+      containerStatuses: [Array],
+      qosClass: 'Burstable'
+    }
+  },
+  {
+    metadata: {
+      name: 'mongo-1',
+      generateName: 'mongo-',
+      namespace: 'hubble-system',
+      uid: '5ee1c520-b87c-4bc3-83e8-26d8235c3064',
+      resourceVersion: '1299704',
+      creationTimestamp: '2023-08-05T01:07:37Z',
+      labels: [Object],
+      annotations: [Object],
+      ownerReferences: [Array],
+      managedFields: [Array]
+    },
+    spec: {
+      volumes: [Array],
+      containers: [Array],
+      restartPolicy: 'Always',
+      terminationGracePeriodSeconds: 30,
+      dnsPolicy: 'ClusterFirst',
+      serviceAccountName: 'spectro-hubble',
+      serviceAccount: 'spectro-hubble',
+      nodeName: 'spectro-mgmt-cluster-cp-9b9q5',
+      securityContext: {},
+      hostname: 'mongo-1',
+      subdomain: 'mongo',
+      affinity: [Object],
+      schedulerName: 'default-scheduler',
+      tolerations: [Array],
+      priority: 0,
+      enableServiceLinks: true,
+      preemptionPolicy: 'PreemptLowerPriority'
+    },
+    status: {
+      phase: 'Running',
+      conditions: [Array],
+      hostIP: '10.10.165.13',
+      podIP: '172.16.12.43',
+      podIPs: [Array],
+      startTime: '2023-08-05T01:07:40Z',
+      containerStatuses: [Array],
+      qosClass: 'Burstable'
+    }
+  },
+  {
+    metadata: {
+      name: 'mongo-2',
+      generateName: 'mongo-',
+      namespace: 'hubble-system',
+      uid: '18d7ba81-b62f-4fbe-93a7-cfebfd372b4c',
+      resourceVersion: '1299737',
+      creationTimestamp: '2023-08-05T01:07:37Z',
+      labels: [Object],
+      annotations: [Object],
+      ownerReferences: [Array],
+      managedFields: [Array]
+    },
+    spec: {
+      volumes: [Array],
+      containers: [Array],
+      restartPolicy: 'Always',
+      terminationGracePeriodSeconds: 30,
+      dnsPolicy: 'ClusterFirst',
+      serviceAccountName: 'spectro-hubble',
+      serviceAccount: 'spectro-hubble',
+      nodeName: 'spectro-mgmt-cluster-cp-t67rh',
+      securityContext: {},
+      hostname: 'mongo-2',
+      subdomain: 'mongo',
+      affinity: [Object],
+      schedulerName: 'default-scheduler',
+      tolerations: [Array],
+      priority: 0,
+      enableServiceLinks: true,
+      preemptionPolicy: 'PreemptLowerPriority'
+    },
+    status: {
+      phase: 'Running',
+      conditions: [Array],
+      hostIP: '10.10.165.11',
+      podIP: '172.16.10.179',
+      podIPs: [Array],
+      startTime: '2023-08-05T01:07:41Z',
+      containerStatuses: [Array],
+      qosClass: 'Burstable'
+    }
+  }
+]
+🚀 ~ file: mongo.js:9 ~ getDb ~ host: 172.16.14.170
+🚀 ~ file: mongo.js:21 ~ getDb ~ host: 172.16.14.170
+🚀 ~ file: mongo.js:9 ~ getDb ~ host: 172.16.12.43
+🚀 ~ file: mongo.js:21 ~ getDb ~ host: 172.16.12.43
+🚀 ~ file: mongo.js:9 ~ getDb ~ host: 172.16.10.179
+🚀 ~ file: mongo.js:21 ~ getDb ~ host: 172.16.10.179
+🚀 ~ file: mongo.js:33 ~ err: null
+Db.prototype.authenticate method will no longer be available in the next major release 3.x as MongoDB 3.6 will only allow auth against users in the admin db and will no longer allow multiple credentials on a socket. Please authenticate using MongoClient.connect with auth credentials.
+🚀 ~ file: mongo.js:33 ~ err: null
+Db.prototype.authenticate method will no longer be available in the next major release 3.x as MongoDB 3.6 will only allow auth against users in the admin db and will no longer allow multiple credentials on a socket. Please authenticate using MongoClient.connect with auth credentials.
+🚀 ~ file: mongo.js:33 ~ err: null
+Db.prototype.authenticate method will no longer be available in the next major release 3.x as MongoDB 3.6 will only allow auth against users in the admin db and will no longer allow multiple credentials on a socket. Please authenticate using MongoClient.connect with auth credentials.
+Pod has been elected for replica set initialization
+initReplSet mongo-2.mongo.hubble-system.svc.cluster.local:27017
+initial rsConfig is {
+  _id: 'rs0',
+  version: 1,
+  term: 0,
+  protocolVersion: 1,
+  writeConcernMajorityJournalDefault: true,
+  members: [
+    {
+      _id: 0,
+      host: 'mongo-2:27017',
+      arbiterOnly: false,
+      buildIndexes: true,
+      hidden: false,
+      priority: 1,
+      tags: {},
+      slaveDelay: 0,
+      votes: 1
+    }
+  ],
+  settings: {
+    chainingAllowed: true,
+    heartbeatIntervalMillis: 2000,
+    heartbeatTimeoutSecs: 10,
+    electionTimeoutMillis: 10000,
+    catchUpTimeoutMillis: -1,
+    catchUpTakeoverDelayMillis: 30000,
+    getLastErrorModes: {},
+    getLastErrorDefaults: { w: 1, wtimeout: 0 },
+    replicaSetId: 64cda1020771d961dde0d130
+  }
+}
+replSetReconfig {
+  _id: 'rs0',
+  version: 1,
+  term: 0,
+  protocolVersion: 1,
+  writeConcernMajorityJournalDefault: true,
+  members: [
+    {
+      _id: 0,
+      host: 'mongo-2.mongo.hubble-system.svc.cluster.local:27017',
+      arbiterOnly: false,
+      buildIndexes: true,
+      hidden: false,
+      priority: 1,
+      tags: {},
+      slaveDelay: 0,
+      votes: 1
+    }
+  ],
+  settings: {
+    chainingAllowed: true,
+    heartbeatIntervalMillis: 2000,
+    heartbeatTimeoutSecs: 10,
+    electionTimeoutMillis: 10000,
+    catchUpTimeoutMillis: -1,
+    catchUpTakeoverDelayMillis: 30000,
+    getLastErrorModes: {},
+    getLastErrorDefaults: { w: 1, wtimeout: 0 },
+    replicaSetId: 64cda1020771d961dde0d130
+  },
+  configsvr: false
+}
+replSetReconfig {
+  _id: 'rs0',
+  version: 2,
+  term: 0,
+  protocolVersion: 1,
+  writeConcernMajorityJournalDefault: true,
+  members: [
+    {
+      _id: 0,
+      host: 'mongo-2.mongo.hubble-system.svc.cluster.local:27017',
+      arbiterOnly: false,
+      buildIndexes: true,
+      hidden: false,
+      priority: 1,
+      tags: {},
+      slaveDelay: 0,
+      votes: 1
+    }
+  ],
+  settings: {
+    chainingAllowed: true,
+    heartbeatIntervalMillis: 2000,
+    heartbeatTimeoutSecs: 10,
+    electionTimeoutMillis: 10000,
+    catchUpTimeoutMillis: -1,
+    catchUpTakeoverDelayMillis: 30000,
+    getLastErrorModes: {},
+    getLastErrorDefaults: { w: 1, wtimeout: 0 },
+    replicaSetId: 64cda1020771d961dde0d130
+  },
+  configsvr: false
+}
+🚀 ~ file: mongo.js:9 ~ getDb ~ host: [Function (anonymous)]
+🚀 ~ file: mongo.js:21 ~ getDb ~ host: 127.0.0.1
+🚀 ~ file: mongo.js:33 ~ err: null
+Db.prototype.authenticate method will no longer be available in the next major release 3.x as MongoDB 3.6 will only allow auth against users in the admin db and will no longer allow multiple credentials on a socket. Please authenticate using MongoClient.connect with auth credentials.
+🚀 ~ file: worker.js:41 ~ workloop ~ err: null
+🚀 ~ file: worker.js:41 ~ workloop ~ results: [
+  [
+    { metadata: [Object], spec: [Object], status: [Object] },
+    { metadata: [Object], spec: [Object], status: [Object] },
+    { metadata: [Object], spec: [Object], status: [Object] }
+  ],
+  Db {
+    _events: [Object: null prototype] {},
+    _eventsCount: 0,
+    _maxListeners: undefined,
+    s: {
+      databaseName: 'admin',
+      dbCache: {},
+      children: [],
+      topology: [Server],
+      options: [Object],
+      logger: [Logger],
+      bson: BSON {},
+      authSource: undefined,
+      readPreference: undefined,
+      bufferMaxEntries: -1,
+      parentDb: null,
+      pkFactory: undefined,
+      nativeParser: undefined,
+      promiseLibrary: [Function: Promise],
+      noListener: false,
+      readConcern: undefined
+    },
+    serverConfig: [Getter],
+    bufferMaxEntries: [Getter],
+    databaseName: [Getter],
+    [Symbol(kCapture)]: false
+  }
+]
+🚀 ~ file: worker.js:54 ~ workloop ~ pods: [
+  {
+    metadata: {
+      name: 'mongo-0',
+      generateName: 'mongo-',
+      namespace: 'hubble-system',
+      uid: 'f40d7a69-b0a3-4a07-b463-c21b3d731f47',
+      resourceVersion: '1299696',
+      creationTimestamp: '2023-08-05T01:07:37Z',
+      labels: [Object],
+      annotations: [Object],
+      ownerReferences: [Array],
+      managedFields: [Array]
+    },
+    spec: {
+      volumes: [Array],
+      containers: [Array],
+      restartPolicy: 'Always',
+      terminationGracePeriodSeconds: 30,
+      dnsPolicy: 'ClusterFirst',
+      serviceAccountName: 'spectro-hubble',
+      serviceAccount: 'spectro-hubble',
+      nodeName: 'spectro-mgmt-cluster-cp-6zjwc',
+      securityContext: {},
+      hostname: 'mongo-0',
+      subdomain: 'mongo',
+      affinity: [Object],
+      schedulerName: 'default-scheduler',
+      tolerations: [Array],
+      priority: 0,
+      enableServiceLinks: true,
+      preemptionPolicy: 'PreemptLowerPriority'
+    },
+    status: {
+      phase: 'Running',
+      conditions: [Array],
+      hostIP: '10.10.165.12',
+      podIP: '172.16.14.170',
+      podIPs: [Array],
+      startTime: '2023-08-05T01:07:40Z',
+      containerStatuses: [Array],
+      qosClass: 'Burstable'
+    }
+  },
+  {
+    metadata: {
+      name: 'mongo-1',
+      generateName: 'mongo-',
+      namespace: 'hubble-system',
+      uid: '5ee1c520-b87c-4bc3-83e8-26d8235c3064',
+      resourceVersion: '1299704',
+      creationTimestamp: '2023-08-05T01:07:37Z',
+      labels: [Object],
+      annotations: [Object],
+      ownerReferences: [Array],
+      managedFields: [Array]
+    },
+    spec: {
+      volumes: [Array],
+      containers: [Array],
+      restartPolicy: 'Always',
+      terminationGracePeriodSeconds: 30,
+      dnsPolicy: 'ClusterFirst',
+      serviceAccountName: 'spectro-hubble',
+      serviceAccount: 'spectro-hubble',
+      nodeName: 'spectro-mgmt-cluster-cp-9b9q5',
+      securityContext: {},
+      hostname: 'mongo-1',
+      subdomain: 'mongo',
+      affinity: [Object],
+      schedulerName: 'default-scheduler',
+      tolerations: [Array],
+      priority: 0,
+      enableServiceLinks: true,
+      preemptionPolicy: 'PreemptLowerPriority'
+    },
+    status: {
+      phase: 'Running',
+      conditions: [Array],
+      hostIP: '10.10.165.13',
+      podIP: '172.16.12.43',
+      podIPs: [Array],
+      startTime: '2023-08-05T01:07:40Z',
+      containerStatuses: [Array],
+      qosClass: 'Burstable'
+    }
+  },
+  {
+    metadata: {
+      name: 'mongo-2',
+      generateName: 'mongo-',
+      namespace: 'hubble-system',
+      uid: '18d7ba81-b62f-4fbe-93a7-cfebfd372b4c',
+      resourceVersion: '1299737',
+      creationTimestamp: '2023-08-05T01:07:37Z',
+      labels: [Object],
+      annotations: [Object],
+      ownerReferences: [Array],
+      managedFields: [Array]
+    },
+    spec: {
+      volumes: [Array],
+      containers: [Array],
+      restartPolicy: 'Always',
+      terminationGracePeriodSeconds: 30,
+      dnsPolicy: 'ClusterFirst',
+      serviceAccountName: 'spectro-hubble',
+      serviceAccount: 'spectro-hubble',
+      nodeName: 'spectro-mgmt-cluster-cp-t67rh',
+      securityContext: {},
+      hostname: 'mongo-2',
+      subdomain: 'mongo',
+      affinity: [Object],
+      schedulerName: 'default-scheduler',
+      tolerations: [Array],
+      priority: 0,
+      enableServiceLinks: true,
+      preemptionPolicy: 'PreemptLowerPriority'
+    },
+    status: {
+      phase: 'Running',
+      conditions: [Array],
+      hostIP: '10.10.165.11',
+      podIP: '172.16.10.179',
+      podIPs: [Array],
+      startTime: '2023-08-05T01:07:41Z',
+      containerStatuses: [Array],
+      qosClass: 'Burstable'
+    }
+  }
+]
+🚀 ~ file: worker.js:111 ~ inReplicaSet ~ status: {
+  set: 'rs0',
+  date: 2023-08-05T01:08:40.095Z,
+  myState: 1,
+  term: 1,
+  syncSourceHost: '',
+  syncSourceId: -1,
+  heartbeatIntervalMillis: 2000,
+  majorityVoteCount: 1,
+  writeMajorityCount: 1,
+  votingMembersCount: 1,
+  writableVotingMembersCount: 1,
+  optimes: {
+    lastCommittedOpTime: { ts: [Timestamp], t: 1 },
+    lastCommittedWallTime: 2023-08-05T01:08:39.645Z,
+    readConcernMajorityOpTime: { ts: [Timestamp], t: 1 },
+    readConcernMajorityWallTime: 2023-08-05T01:08:39.645Z,
+    appliedOpTime: { ts: [Timestamp], t: 1 },
+    durableOpTime: { ts: [Timestamp], t: 1 },
+    lastAppliedWallTime: 2023-08-05T01:08:39.645Z,
+    lastDurableWallTime: 2023-08-05T01:08:39.645Z
+  },
+  lastStableRecoveryTimestamp: Timestamp { _bsontype: 'Timestamp', low_: 6, high_: 1691197699 },
+  electionCandidateMetrics: {
+    lastElectionReason: 'electionTimeout',
+    lastElectionDate: 2023-08-05T01:08:19.518Z,
+    electionTerm: 1,
+    lastCommittedOpTimeAtElection: { ts: [Timestamp], t: -1 },
+    lastSeenOpTimeAtElection: { ts: [Timestamp], t: -1 },
+    numVotesNeeded: 1,
+    priorityAtElection: 1,
+    electionTimeoutMillis: 10000,
+    newTermStartDate: 2023-08-05T01:08:19.607Z,
+    wMajorityWriteAvailabilityDate: 2023-08-05T01:08:19.647Z
+  },
+  members: [
+    {
+      _id: 0,
+      name: 'mongo-2.mongo.hubble-system.svc.cluster.local:27017',
+      health: 1,
+      state: 1,
+      stateStr: 'PRIMARY',
+      uptime: 44,
+      optime: [Object],
+      optimeDate: 2023-08-05T01:08:39.000Z,
+      lastAppliedWallTime: 2023-08-05T01:08:39.645Z,
+      lastDurableWallTime: 2023-08-05T01:08:39.645Z,
+      syncSourceHost: '',
+      syncSourceId: -1,
+      infoMessage: 'Could not find member to sync from',
+      electionTime: [Timestamp],
+      electionDate: 2023-08-05T01:08:19.000Z,
+      configVersion: 3,
+      configTerm: 1,
+      self: true,
+      lastHeartbeatMessage: ''
+    }
+  ],
+  ok: 1,
+  '$clusterTime': {
+    clusterTime: Timestamp { _bsontype: 'Timestamp', low_: 1, high_: 1691197719 },
+    signature: { hash: [Binary], keyId: [Long] }
+  },
+  operationTime: Timestamp { _bsontype: 'Timestamp', low_: 1, high_: 1691197719 }
+}
+🚀 ~ file: worker.js:118 ~ inReplicaSet ~ member: {
+  _id: 0,
+  name: 'mongo-2.mongo.hubble-system.svc.cluster.local:27017',
+  health: 1,
+  state: 1,
+  stateStr: 'PRIMARY',
+  uptime: 44,
+  optime: {
+    ts: Timestamp { _bsontype: 'Timestamp', low_: 1, high_: 1691197719 },
+    t: 1
+  },
+  optimeDate: 2023-08-05T01:08:39.000Z,
+  lastAppliedWallTime: 2023-08-05T01:08:39.645Z,
+  lastDurableWallTime: 2023-08-05T01:08:39.645Z,
+  syncSourceHost: '',
+  syncSourceId: -1,
+  infoMessage: 'Could not find member to sync from',
+  electionTime: Timestamp { _bsontype: 'Timestamp', low_: 2, high_: 1691197699 },
+  electionDate: 2023-08-05T01:08:19.000Z,
+  configVersion: 3,
+  configTerm: 1,
+  self: true,
+  lastHeartbeatMessage: ''
+}
+Addresses to add:     [
+  'mongo-0.mongo.hubble-system.svc.cluster.local:27017',
+  'mongo-1.mongo.hubble-system.svc.cluster.local:27017'
+]
+Addresses to remove:  []
+🚀 ~ file: mongo.js:147 ~ rsConfig: {
+  _id: 'rs0',
+  version: 3,
+  term: 1,
+  protocolVersion: 1,
+  writeConcernMajorityJournalDefault: true,
+  members: [
+    {
+      _id: 0,
+      host: 'mongo-2.mongo.hubble-system.svc.cluster.local:27017',
+      arbiterOnly: false,
+      buildIndexes: true,
+      hidden: false,
+      priority: 1,
+      tags: {},
+      slaveDelay: 0,
+      votes: 1
+    }
+  ],
+  settings: {
+    chainingAllowed: true,
+    heartbeatIntervalMillis: 2000,
+    heartbeatTimeoutSecs: 10,
+    electionTimeoutMillis: 10000,
+    catchUpTimeoutMillis: -1,
+    catchUpTakeoverDelayMillis: 30000,
+    getLastErrorModes: {},
+    getLastErrorDefaults: { w: 1, wtimeout: 0 },
+    replicaSetId: 64cda1020771d961dde0d130
+  }
+}
+🚀 ~ file: mongo.js:168 ~ addNewMembers ~ memberIds: [ 0 ]
+🚀 ~ file: mongo.js:208 ~ addNewMembers ~ rsConfig: {
+  _id: 'rs0',
+  version: 3,
+  term: 1,
+  protocolVersion: 1,
+  writeConcernMajorityJournalDefault: true,
+  members: [
+    {
+      _id: 0,
+      host: 'mongo-2.mongo.hubble-system.svc.cluster.local:27017',
+      arbiterOnly: false,
+      buildIndexes: true,
+      hidden: false,
+      priority: 1,
+      tags: {},
+      slaveDelay: 0,
+      votes: 1
+    },
+    {
+      _id: 1,
+      host: 'mongo-0.mongo.hubble-system.svc.cluster.local:27017'
+    }
+  ],
+  settings: {
+    chainingAllowed: true,
+    heartbeatIntervalMillis: 2000,
+    heartbeatTimeoutSecs: 10,
+    electionTimeoutMillis: 10000,
+    catchUpTimeoutMillis: -1,
+    catchUpTakeoverDelayMillis: 30000,
+    getLastErrorModes: {},
+    getLastErrorDefaults: { w: 1, wtimeout: 0 },
+    replicaSetId: 64cda1020771d961dde0d130
+  }
+}
+🚀 ~ file: mongo.js:208 ~ addNewMembers ~ rsConfig: {
+  _id: 'rs0',
+  version: 3,
+  term: 1,
+  protocolVersion: 1,
+  writeConcernMajorityJournalDefault: true,
+  members: [
+    {
+      _id: 0,
+      host: 'mongo-2.mongo.hubble-system.svc.cluster.local:27017',
+      arbiterOnly: false,
+      buildIndexes: true,
+      hidden: false,
+      priority: 1,
+      tags: {},
+      slaveDelay: 0,
+      votes: 1
+    },
+    {
+      _id: 1,
+      host: 'mongo-0.mongo.hubble-system.svc.cluster.local:27017'
+    },
+    {
+      _id: 2,
+      host: 'mongo-1.mongo.hubble-system.svc.cluster.local:27017'
+    }
+  ],
+  settings: {
+    chainingAllowed: true,
+    heartbeatIntervalMillis: 2000,
+    heartbeatTimeoutSecs: 10,
+    electionTimeoutMillis: 10000,
+    catchUpTimeoutMillis: -1,
+    catchUpTakeoverDelayMillis: 30000,
+    getLastErrorModes: {},
+    getLastErrorDefaults: { w: 1, wtimeout: 0 },
+    replicaSetId: 64cda1020771d961dde0d130
+  }
+}
+replSetReconfig {
+  _id: 'rs0',
+  version: 3,
+  term: 1,
+  protocolVersion: 1,
+  writeConcernMajorityJournalDefault: true,
+  members: [
+    {
+      _id: 0,
+      host: 'mongo-2.mongo.hubble-system.svc.cluster.local:27017',
+      arbiterOnly: false,
+      buildIndexes: true,
+      hidden: false,
+      priority: 1,
+      tags: {},
+      slaveDelay: 0,
+      votes: 1
+    },
+    {
+      _id: 1,
+      host: 'mongo-0.mongo.hubble-system.svc.cluster.local:27017'
+    },
+    {
+      _id: 2,
+      host: 'mongo-1.mongo.hubble-system.svc.cluster.local:27017'
+    }
+  ],
+  settings: {
+    chainingAllowed: true,
+    heartbeatIntervalMillis: 2000,
+    heartbeatTimeoutSecs: 10,
+    electionTimeoutMillis: 10000,
+    catchUpTimeoutMillis: -1,
+    catchUpTakeoverDelayMillis: 30000,
+    getLastErrorModes: {},
+    getLastErrorDefaults: { w: 1, wtimeout: 0 },
+    replicaSetId: 64cda1020771d961dde0d130
+  }
+}
+Error in workloop Error [MongoError]: Non force replica set reconfig can only add or remove at most 1 voting member.
+    at MongoError.create (/opt/cvallance/mongo-k8s-sidecar/node_modules/mongodb-core/lib/error.js:31:11)
+    at /opt/cvallance/mongo-k8s-sidecar/node_modules/mongodb-core/lib/connection/pool.js:497:72
+    at authenticateStragglers (/opt/cvallance/mongo-k8s-sidecar/node_modules/mongodb-core/lib/connection/pool.js:443:16)
+    at Connection.messageHandler (/opt/cvallance/mongo-k8s-sidecar/node_modules/mongodb-core/lib/connection/pool.js:477:5)
+    at Socket.<anonymous> (/opt/cvallance/mongo-k8s-sidecar/node_modules/mongodb-core/lib/connection/connection.js:333:22)
+    at Socket.emit (node:events:514:28)
+    at addChunk (node:internal/streams/readable:343:12)
+    at readableAddChunk (node:internal/streams/readable:316:9)
+    at Readable.push (node:internal/streams/readable:253:10)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
+  operationTime: Timestamp { _bsontype: 'Timestamp', low_: 1, high_: 1691197719 },
+  ok: 0,
+  errmsg: 'Non force replica set reconfig can only add or remove at most 1 voting member.',
+  code: 103,
+  codeName: 'NewReplicaSetConfigurationIncompatible',
+  '$clusterTime': {
+    clusterTime: Timestamp { _bsontype: 'Timestamp', low_: 1, high_: 1691197719 },
+    signature: { hash: [Binary], keyId: [Long] }
+  }
+}
+🚀 ~ file: mongo.js:9 ~ getDb ~ host: [Function (anonymous)]
+🚀 ~ file: mongo.js:21 ~ getDb ~ host: 127.0.0.1
+🚀 ~ file: mongo.js:33 ~ err: null
+Db.prototype.authenticate method will no longer be available in the next major release 3.x as MongoDB 3.6 will only allow auth against users in the admin db and will no longer allow multiple credentials on a socket. Please authenticate using MongoClient.connect with auth credentials.
+🚀 ~ file: worker.js:41 ~ workloop ~ err: null
+🚀 ~ file: worker.js:41 ~ workloop ~ results: [
+  [
+    { metadata: [Object], spec: [Object], status: [Object] },
+    { metadata: [Object], spec: [Object], status: [Object] },
+    { metadata: [Object], spec: [Object], status: [Object] }
+  ],
+  Db {
+    _events: [Object: null prototype] {},
+    _eventsCount: 0,
+    _maxListeners: undefined,
+    s: {
+      databaseName: 'admin',
+      dbCache: {},
+      children: [],
+      topology: [Server],
+      options: [Object],
+      logger: [Logger],
+      bson: BSON {},
+      authSource: undefined,
+      readPreference: undefined,
+      bufferMaxEntries: -1,
+      parentDb: null,
+      pkFactory: undefined,
+      nativeParser: undefined,
+      promiseLibrary: [Function: Promise],
+      noListener: false,
+      readConcern: undefined
+    },
+    serverConfig: [Getter],
+    bufferMaxEntries: [Getter],
+    databaseName: [Getter],
+    [Symbol(kCapture)]: false
+  }
+]
+🚀 ~ file: worker.js:54 ~ workloop ~ pods: [
+  {
+    metadata: {
+      name: 'mongo-0',
+      generateName: 'mongo-',
+      namespace: 'hubble-system',
+      uid: 'f40d7a69-b0a3-4a07-b463-c21b3d731f47',
+      resourceVersion: '1299696',
+      creationTimestamp: '2023-08-05T01:07:37Z',
+      labels: [Object],
+      annotations: [Object],
+      ownerReferences: [Array],
+      managedFields: [Array]
+    },
+    spec: {
+      volumes: [Array],
+      containers: [Array],
+      restartPolicy: 'Always',
+      terminationGracePeriodSeconds: 30,
+      dnsPolicy: 'ClusterFirst',
+      serviceAccountName: 'spectro-hubble',
+      serviceAccount: 'spectro-hubble',
+      nodeName: 'spectro-mgmt-cluster-cp-6zjwc',
+      securityContext: {},
+      hostname: 'mongo-0',
+      subdomain: 'mongo',
+      affinity: [Object],
+      schedulerName: 'default-scheduler',
+      tolerations: [Array],
+      priority: 0,
+      enableServiceLinks: true,
+      preemptionPolicy: 'PreemptLowerPriority'
+    },
+    status: {
+      phase: 'Running',
+      conditions: [Array],
+      hostIP: '10.10.165.12',
+      podIP: '172.16.14.170',
+      podIPs: [Array],
+      startTime: '2023-08-05T01:07:40Z',
+      containerStatuses: [Array],
+      qosClass: 'Burstable'
+    }
+  },
+  {
+    metadata: {
+      name: 'mongo-1',
+      generateName: 'mongo-',
+      namespace: 'hubble-system',
+      uid: '5ee1c520-b87c-4bc3-83e8-26d8235c3064',
+      resourceVersion: '1299704',
+      creationTimestamp: '2023-08-05T01:07:37Z',
+      labels: [Object],
+      annotations: [Object],
+      ownerReferences: [Array],
+      managedFields: [Array]
+    },
+    spec: {
+      volumes: [Array],
+      containers: [Array],
+      restartPolicy: 'Always',
+      terminationGracePeriodSeconds: 30,
+      dnsPolicy: 'ClusterFirst',
+      serviceAccountName: 'spectro-hubble',
+      serviceAccount: 'spectro-hubble',
+      nodeName: 'spectro-mgmt-cluster-cp-9b9q5',
+      securityContext: {},
+      hostname: 'mongo-1',
+      subdomain: 'mongo',
+      affinity: [Object],
+      schedulerName: 'default-scheduler',
+      tolerations: [Array],
+      priority: 0,
+      enableServiceLinks: true,
+      preemptionPolicy: 'PreemptLowerPriority'
+    },
+    status: {
+      phase: 'Running',
+      conditions: [Array],
+      hostIP: '10.10.165.13',
+      podIP: '172.16.12.43',
+      podIPs: [Array],
+      startTime: '2023-08-05T01:07:40Z',
+      containerStatuses: [Array],
+      qosClass: 'Burstable'
+    }
+  },
+  {
+    metadata: {
+      name: 'mongo-2',
+      generateName: 'mongo-',
+      namespace: 'hubble-system',
+      uid: '18d7ba81-b62f-4fbe-93a7-cfebfd372b4c',
+      resourceVersion: '1299737',
+      creationTimestamp: '2023-08-05T01:07:37Z',
+      labels: [Object],
+      annotations: [Object],
+      ownerReferences: [Array],
+      managedFields: [Array]
+    },
+    spec: {
+      volumes: [Array],
+      containers: [Array],
+      restartPolicy: 'Always',
+      terminationGracePeriodSeconds: 30,
+      dnsPolicy: 'ClusterFirst',
+      serviceAccountName: 'spectro-hubble',
+      serviceAccount: 'spectro-hubble',
+      nodeName: 'spectro-mgmt-cluster-cp-t67rh',
+      securityContext: {},
+      hostname: 'mongo-2',
+      subdomain: 'mongo',
+      affinity: [Object],
+      schedulerName: 'default-scheduler',
+      tolerations: [Array],
+      priority: 0,
+      enableServiceLinks: true,
+      preemptionPolicy: 'PreemptLowerPriority'
+    },
+    status: {
+      phase: 'Running',
+      conditions: [Array],
+      hostIP: '10.10.165.11',
+      podIP: '172.16.10.179',
+      podIPs: [Array],
+      startTime: '2023-08-05T01:07:41Z',
+      containerStatuses: [Array],
+      qosClass: 'Burstable'
+    }
+  }
+]
+🚀 ~ file: worker.js:111 ~ inReplicaSet ~ status: {
+  set: 'rs0',
+  date: 2023-08-05T01:09:00.162Z,
+  myState: 1,
+  term: 1,
+  syncSourceHost: '',
+  syncSourceId: -1,
+  heartbeatIntervalMillis: 2000,
+  majorityVoteCount: 1,
+  writeMajorityCount: 1,
+  votingMembersCount: 1,
+  writableVotingMembersCount: 1,
+  optimes: {
+    lastCommittedOpTime: { ts: [Timestamp], t: 1 },
+    lastCommittedWallTime: 2023-08-05T01:08:59.648Z,
+    readConcernMajorityOpTime: { ts: [Timestamp], t: 1 },
+    readConcernMajorityWallTime: 2023-08-05T01:08:59.648Z,
+    appliedOpTime: { ts: [Timestamp], t: 1 },
+    durableOpTime: { ts: [Timestamp], t: 1 },
+    lastAppliedWallTime: 2023-08-05T01:08:59.648Z,
+    lastDurableWallTime: 2023-08-05T01:08:59.648Z
+  },
+  lastStableRecoveryTimestamp: Timestamp { _bsontype: 'Timestamp', low_: 6, high_: 1691197699 },
+  electionCandidateMetrics: {
+    lastElectionReason: 'electionTimeout',
+    lastElectionDate: 2023-08-05T01:08:19.518Z,
+    electionTerm: 1,
+    lastCommittedOpTimeAtElection: { ts: [Timestamp], t: -1 },
+    lastSeenOpTimeAtElection: { ts: [Timestamp], t: -1 },
+    numVotesNeeded: 1,
+    priorityAtElection: 1,
+    electionTimeoutMillis: 10000,
+    newTermStartDate: 2023-08-05T01:08:19.607Z,
+    wMajorityWriteAvailabilityDate: 2023-08-05T01:08:19.647Z
+  },
+  members: [
+    {
+      _id: 0,
+      name: 'mongo-2.mongo.hubble-system.svc.cluster.local:27017',
+      health: 1,
+      state: 1,
+      stateStr: 'PRIMARY',
+      uptime: 64,
+      optime: [Object],
+      optimeDate: 2023-08-05T01:08:59.000Z,
+      lastAppliedWallTime: 2023-08-05T01:08:59.648Z,
+      lastDurableWallTime: 2023-08-05T01:08:59.648Z,
+      syncSourceHost: '',
+      syncSourceId: -1,
+      infoMessage: 'Could not find member to sync from',
+      electionTime: [Timestamp],
+      electionDate: 2023-08-05T01:08:19.000Z,
+      configVersion: 3,
+      configTerm: 1,
+      self: true,
+      lastHeartbeatMessage: ''
+    }
+  ],
+  ok: 1,
+  '$clusterTime': {
+    clusterTime: Timestamp { _bsontype: 'Timestamp', low_: 1, high_: 1691197739 },
+    signature: { hash: [Binary], keyId: [Long] }
+  },
+  operationTime: Timestamp { _bsontype: 'Timestamp', low_: 1, high_: 1691197739 }
+}
+🚀 ~ file: worker.js:118 ~ inReplicaSet ~ member: {
+  _id: 0,
+  name: 'mongo-2.mongo.hubble-system.svc.cluster.local:27017',
+  health: 1,
+  state: 1,
+  stateStr: 'PRIMARY',
+  uptime: 64,
+  optime: {
+    ts: Timestamp { _bsontype: 'Timestamp', low_: 1, high_: 1691197739 },
+    t: 1
+  },
+  optimeDate: 2023-08-05T01:08:59.000Z,
+  lastAppliedWallTime: 2023-08-05T01:08:59.648Z,
+  lastDurableWallTime: 2023-08-05T01:08:59.648Z,
+  syncSourceHost: '',
+  syncSourceId: -1,
+  infoMessage: 'Could not find member to sync from',
+  electionTime: Timestamp { _bsontype: 'Timestamp', low_: 2, high_: 1691197699 },
+  electionDate: 2023-08-05T01:08:19.000Z,
+  configVersion: 3,
+  configTerm: 1,
+  self: true,
+  lastHeartbeatMessage: ''
+}
+Addresses to add:     [
+  'mongo-0.mongo.hubble-system.svc.cluster.local:27017',
+  'mongo-1.mongo.hubble-system.svc.cluster.local:27017'
+]
+Addresses to remove:  []
+🚀 ~ file: mongo.js:147 ~ rsConfig: {
+  _id: 'rs0',
+  version: 3,
+  term: 1,
+  protocolVersion: 1,
+  writeConcernMajorityJournalDefault: true,
+  members: [
+    {
+      _id: 0,
+      host: 'mongo-2.mongo.hubble-system.svc.cluster.local:27017',
+      arbiterOnly: false,
+      buildIndexes: true,
+      hidden: false,
+      priority: 1,
+      tags: {},
+      slaveDelay: 0,
+      votes: 1
+    }
+  ],
+  settings: {
+    chainingAllowed: true,
+    heartbeatIntervalMillis: 2000,
+    heartbeatTimeoutSecs: 10,
+    electionTimeoutMillis: 10000,
+    catchUpTimeoutMillis: -1,
+    catchUpTakeoverDelayMillis: 30000,
+    getLastErrorModes: {},
+    getLastErrorDefaults: { w: 1, wtimeout: 0 },
+    replicaSetId: 64cda1020771d961dde0d130
+  }
+}
+🚀 ~ file: mongo.js:168 ~ addNewMembers ~ memberIds: [ 0 ]
+🚀 ~ file: mongo.js:208 ~ addNewMembers ~ rsConfig: {
+  _id: 'rs0',
+  version: 3,
+  term: 1,
+  protocolVersion: 1,
+  writeConcernMajorityJournalDefault: true,
+  members: [
+    {
+      _id: 0,
+      host: 'mongo-2.mongo.hubble-system.svc.cluster.local:27017',
+      arbiterOnly: false,
+      buildIndexes: true,
+      hidden: false,
+      priority: 1,
+      tags: {},
+      slaveDelay: 0,
+      votes: 1
+    },
+    {
+      _id: 1,
+      host: 'mongo-0.mongo.hubble-system.svc.cluster.local:27017'
+    }
+  ],
+  settings: {
+    chainingAllowed: true,
+    heartbeatIntervalMillis: 2000,
+    heartbeatTimeoutSecs: 10,
+    electionTimeoutMillis: 10000,
+    catchUpTimeoutMillis: -1,
+    catchUpTakeoverDelayMillis: 30000,
+    getLastErrorModes: {},
+    getLastErrorDefaults: { w: 1, wtimeout: 0 },
+    replicaSetId: 64cda1020771d961dde0d130
+  }
+}
+🚀 ~ file: mongo.js:208 ~ addNewMembers ~ rsConfig: {
+  _id: 'rs0',
+  version: 3,
+  term: 1,
+  protocolVersion: 1,
+  writeConcernMajorityJournalDefault: true,
+  members: [
+    {
+      _id: 0,
+      host: 'mongo-2.mongo.hubble-system.svc.cluster.local:27017',
+      arbiterOnly: false,
+      buildIndexes: true,
+      hidden: false,
+      priority: 1,
+      tags: {},
+      slaveDelay: 0,
+      votes: 1
+    },
+    {
+      _id: 1,
+      host: 'mongo-0.mongo.hubble-system.svc.cluster.local:27017'
+    },
+    {
+      _id: 2,
+      host: 'mongo-1.mongo.hubble-system.svc.cluster.local:27017'
+    }
+  ],
+  settings: {
+    chainingAllowed: true,
+    heartbeatIntervalMillis: 2000,
+    heartbeatTimeoutSecs: 10,
+    electionTimeoutMillis: 10000,
+    catchUpTimeoutMillis: -1,
+    catchUpTakeoverDelayMillis: 30000,
+    getLastErrorModes: {},
+    getLastErrorDefaults: { w: 1, wtimeout: 0 },
+    replicaSetId: 64cda1020771d961dde0d130
+  }
+}
+replSetReconfig {
+  _id: 'rs0',
+  version: 3,
+  term: 1,
+  protocolVersion: 1,
+  writeConcernMajorityJournalDefault: true,
+  members: [
+    {
+      _id: 0,
+      host: 'mongo-2.mongo.hubble-system.svc.cluster.local:27017',
+      arbiterOnly: false,
+      buildIndexes: true,
+      hidden: false,
+      priority: 1,
+      tags: {},
+      slaveDelay: 0,
+      votes: 1
+    },
+    {
+      _id: 1,
+      host: 'mongo-0.mongo.hubble-system.svc.cluster.local:27017'
+    },
+    {
+      _id: 2,
+      host: 'mongo-1.mongo.hubble-system.svc.cluster.local:27017'
+    }
+  ],
+  settings: {
+    chainingAllowed: true,
+    heartbeatIntervalMillis: 2000,
+    heartbeatTimeoutSecs: 10,
+    electionTimeoutMillis: 10000,
+    catchUpTimeoutMillis: -1,
+    catchUpTakeoverDelayMillis: 30000,
+    getLastErrorModes: {},
+    getLastErrorDefaults: { w: 1, wtimeout: 0 },
+    replicaSetId: 64cda1020771d961dde0d130
+  }
+}
+Error in workloop Error [MongoError]: Non force replica set reconfig can only add or remove at most 1 voting member.
+    at MongoError.create (/opt/cvallance/mongo-k8s-sidecar/node_modules/mongodb-core/lib/error.js:31:11)
+    at /opt/cvallance/mongo-k8s-sidecar/node_modules/mongodb-core/lib/connection/pool.js:497:72
+    at authenticateStragglers (/opt/cvallance/mongo-k8s-sidecar/node_modules/mongodb-core/lib/connection/pool.js:443:16)
+    at Connection.messageHandler (/opt/cvallance/mongo-k8s-sidecar/node_modules/mongodb-core/lib/connection/pool.js:477:5)
+    at Socket.<anonymous> (/opt/cvallance/mongo-k8s-sidecar/node_modules/mongodb-core/lib/connection/connection.js:333:22)
+    at Socket.emit (node:events:514:28)
+    at addChunk (node:internal/streams/readable:343:12)
+    at readableAddChunk (node:internal/streams/readable:316:9)
+    at Readable.push (node:internal/streams/readable:253:10)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
+  operationTime: Timestamp { _bsontype: 'Timestamp', low_: 1, high_: 1691197739 },
+  ok: 0,
+  errmsg: 'Non force replica set reconfig can only add or remove at most 1 voting member.',
+  code: 103,
+  codeName: 'NewReplicaSetConfigurationIncompatible',
+  '$clusterTime': {
+    clusterTime: Timestamp { _bsontype: 'Timestamp', low_: 1, high_: 1691197739 },
+    signature: { hash: [Binary], keyId: [Long] }
+  }
+}
+🚀 ~ file: mongo.js:9 ~ getDb ~ host: [Function (anonymous)]
+🚀 ~ file: mongo.js:21 ~ getDb ~ host: 127.0.0.1
+🚀 ~ file: mongo.js:33 ~ err: null
+Db.prototype.authenticate method will no longer be available in the next major release 3.x as MongoDB 3.6 will only allow auth against users in the admin db and will no longer allow multiple credentials on a socket. Please authenticate using MongoClient.connect with auth credentials.
+🚀 ~ file: worker.js:41 ~ workloop ~ err: null
+🚀 ~ file: worker.js:41 ~ workloop ~ results: [
+  [
+    { metadata: [Object], spec: [Object], status: [Object] },
+    { metadata: [Object], spec: [Object], status: [Object] },
+    { metadata: [Object], spec: [Object], status: [Object] }
+  ],
+  Db {
+    _events: [Object: null prototype] {},
+    _eventsCount: 0,
+    _maxListeners: undefined,
+    s: {
+      databaseName: 'admin',
+      dbCache: {},
+      children: [],
+      topology: [Server],
+      options: [Object],
+      logger: [Logger],
+      bson: BSON {},
+      authSource: undefined,
+      readPreference: undefined,
+      bufferMaxEntries: -1,
+      parentDb: null,
+      pkFactory: undefined,
+      nativeParser: undefined,
+      promiseLibrary: [Function: Promise],
+      noListener: false,
+      readConcern: undefined
+    },
+    serverConfig: [Getter],
+    bufferMaxEntries: [Getter],
+    databaseName: [Getter],
+    [Symbol(kCapture)]: false
+  }
+]
+🚀 ~ file: worker.js:54 ~ workloop ~ pods: [
+  {
+    metadata: {
+      name: 'mongo-0',
+      generateName: 'mongo-',
+      namespace: 'hubble-system',
+      uid: 'f40d7a69-b0a3-4a07-b463-c21b3d731f47',
+      resourceVersion: '1299696',
+      creationTimestamp: '2023-08-05T01:07:37Z',
+      labels: [Object],
+      annotations: [Object],
+      ownerReferences: [Array],
+      managedFields: [Array]
+    },
+    spec: {
+      volumes: [Array],
+      containers: [Array],
+      restartPolicy: 'Always',
+      terminationGracePeriodSeconds: 30,
+      dnsPolicy: 'ClusterFirst',
+      serviceAccountName: 'spectro-hubble',
+      serviceAccount: 'spectro-hubble',
+      nodeName: 'spectro-mgmt-cluster-cp-6zjwc',
+      securityContext: {},
+      hostname: 'mongo-0',
+      subdomain: 'mongo',
+      affinity: [Object],
+      schedulerName: 'default-scheduler',
+      tolerations: [Array],
+      priority: 0,
+      enableServiceLinks: true,
+      preemptionPolicy: 'PreemptLowerPriority'
+    },
+    status: {
+      phase: 'Running',
+      conditions: [Array],
+      hostIP: '10.10.165.12',
+      podIP: '172.16.14.170',
+      podIPs: [Array],
+      startTime: '2023-08-05T01:07:40Z',
+      containerStatuses: [Array],
+      qosClass: 'Burstable'
+    }
+  },
+  {
+    metadata: {
+      name: 'mongo-1',
+      generateName: 'mongo-',
+      namespace: 'hubble-system',
+      uid: '5ee1c520-b87c-4bc3-83e8-26d8235c3064',
+      resourceVersion: '1299704',
+      creationTimestamp: '2023-08-05T01:07:37Z',
+      labels: [Object],
+      annotations: [Object],
+      ownerReferences: [Array],
+      managedFields: [Array]
+    },
+    spec: {
+      volumes: [Array],
+      containers: [Array],
+      restartPolicy: 'Always',
+      terminationGracePeriodSeconds: 30,
+      dnsPolicy: 'ClusterFirst',
+      serviceAccountName: 'spectro-hubble',
+      serviceAccount: 'spectro-hubble',
+      nodeName: 'spectro-mgmt-cluster-cp-9b9q5',
+      securityContext: {},
+      hostname: 'mongo-1',
+      subdomain: 'mongo',
+      affinity: [Object],
+      schedulerName: 'default-scheduler',
+      tolerations: [Array],
+      priority: 0,
+      enableServiceLinks: true,
+      preemptionPolicy: 'PreemptLowerPriority'
+    },
+    status: {
+      phase: 'Running',
+      conditions: [Array],
+      hostIP: '10.10.165.13',
+      podIP: '172.16.12.43',
+      podIPs: [Array],
+      startTime: '2023-08-05T01:07:40Z',
+      containerStatuses: [Array],
+      qosClass: 'Burstable'
+    }
+  },
+  {
+    metadata: {
+      name: 'mongo-2',
+      generateName: 'mongo-',
+      namespace: 'hubble-system',
+      uid: '18d7ba81-b62f-4fbe-93a7-cfebfd372b4c',
+      resourceVersion: '1299737',
+      creationTimestamp: '2023-08-05T01:07:37Z',
+      labels: [Object],
+      annotations: [Object],
+      ownerReferences: [Array],
+      managedFields: [Array]
+    },
+    spec: {
+      volumes: [Array],
+      containers: [Array],
+      restartPolicy: 'Always',
+      terminationGracePeriodSeconds: 30,
+      dnsPolicy: 'ClusterFirst',
+      serviceAccountName: 'spectro-hubble',
+      serviceAccount: 'spectro-hubble',
+      nodeName: 'spectro-mgmt-cluster-cp-t67rh',
+      securityContext: {},
+      hostname: 'mongo-2',
+      subdomain: 'mongo',
+      affinity: [Object],
+      schedulerName: 'default-scheduler',
+      tolerations: [Array],
+      priority: 0,
+      enableServiceLinks: true,
+      preemptionPolicy: 'PreemptLowerPriority'
+    },
+    status: {
+      phase: 'Running',
+      conditions: [Array],
+      hostIP: '10.10.165.11',
+      podIP: '172.16.10.179',
+      podIPs: [Array],
+      startTime: '2023-08-05T01:07:41Z',
+      containerStatuses: [Array],
+      qosClass: 'Burstable'
+    }
+  }
+]
+🚀 ~ file: worker.js:111 ~ inReplicaSet ~ status: {
+  set: 'rs0',
+  date: 2023-08-05T01:09:20.255Z,
+  myState: 1,
+  term: 1,
+  syncSourceHost: '',
+  syncSourceId: -1,
+  heartbeatIntervalMillis: 2000,
+  majorityVoteCount: 1,
+  writeMajorityCount: 1,
+  votingMembersCount: 1,
+  writableVotingMembersCount: 1,
+  optimes: {
+    lastCommittedOpTime: { ts: [Timestamp], t: 1 },
+    lastCommittedWallTime: 2023-08-05T01:09:19.654Z,
+    readConcernMajorityOpTime: { ts: [Timestamp], t: 1 },
+    readConcernMajorityWallTime: 2023-08-05T01:09:19.654Z,
+    appliedOpTime: { ts: [Timestamp], t: 1 },
+    durableOpTime: { ts: [Timestamp], t: 1 },
+    lastAppliedWallTime: 2023-08-05T01:09:19.654Z,
+    lastDurableWallTime: 2023-08-05T01:09:19.654Z
+  },
+  lastStableRecoveryTimestamp: Timestamp { _bsontype: 'Timestamp', low_: 1, high_: 1691197759 },
+  electionCandidateMetrics: {
+    lastElectionReason: 'electionTimeout',
+    lastElectionDate: 2023-08-05T01:08:19.518Z,
+    electionTerm: 1,
+    lastCommittedOpTimeAtElection: { ts: [Timestamp], t: -1 },
+    lastSeenOpTimeAtElection: { ts: [Timestamp], t: -1 },
+    numVotesNeeded: 1,
+    priorityAtElection: 1,
+    electionTimeoutMillis: 10000,
+    newTermStartDate: 2023-08-05T01:08:19.607Z,
+    wMajorityWriteAvailabilityDate: 2023-08-05T01:08:19.647Z
+  },
+  members: [
+    {
+      _id: 0,
+      name: 'mongo-2.mongo.hubble-system.svc.cluster.local:27017',
+      health: 1,
+      state: 1,
+      stateStr: 'PRIMARY',
+      uptime: 84,
+      optime: [Object],
+      optimeDate: 2023-08-05T01:09:19.000Z,
+      lastAppliedWallTime: 2023-08-05T01:09:19.654Z,
+      lastDurableWallTime: 2023-08-05T01:09:19.654Z,
+      syncSourceHost: '',
+      syncSourceId: -1,
+      infoMessage: 'Could not find member to sync from',
+      electionTime: [Timestamp],
+      electionDate: 2023-08-05T01:08:19.000Z,
+      configVersion: 3,
+      configTerm: 1,
+      self: true,
+      lastHeartbeatMessage: ''
+    }
+  ],
+  ok: 1,
+  '$clusterTime': {
+    clusterTime: Timestamp { _bsontype: 'Timestamp', low_: 1, high_: 1691197759 },
+    signature: { hash: [Binary], keyId: [Long] }
+  },
+  operationTime: Timestamp { _bsontype: 'Timestamp', low_: 1, high_: 1691197759 }
+}
+🚀 ~ file: worker.js:118 ~ inReplicaSet ~ member: {
+  _id: 0,
+  name: 'mongo-2.mongo.hubble-system.svc.cluster.local:27017',
+  health: 1,
+  state: 1,
+  stateStr: 'PRIMARY',
+  uptime: 84,
+  optime: {
+    ts: Timestamp { _bsontype: 'Timestamp', low_: 1, high_: 1691197759 },
+    t: 1
+  },
+  optimeDate: 2023-08-05T01:09:19.000Z,
+  lastAppliedWallTime: 2023-08-05T01:09:19.654Z,
+  lastDurableWallTime: 2023-08-05T01:09:19.654Z,
+  syncSourceHost: '',
+  syncSourceId: -1,
+  infoMessage: 'Could not find member to sync from',
+  electionTime: Timestamp { _bsontype: 'Timestamp', low_: 2, high_: 1691197699 },
+  electionDate: 2023-08-05T01:08:19.000Z,
+  configVersion: 3,
+  configTerm: 1,
+  self: true,
+  lastHeartbeatMessage: ''
+}
+Addresses to add:     [
+  'mongo-0.mongo.hubble-system.svc.cluster.local:27017',
+  'mongo-1.mongo.hubble-system.svc.cluster.local:27017'
+]
+Addresses to remove:  []
+🚀 ~ file: mongo.js:147 ~ rsConfig: {
+  _id: 'rs0',
+  version: 3,
+  term: 1,
+  protocolVersion: 1,
+  writeConcernMajorityJournalDefault: true,
+  members: [
+    {
+      _id: 0,
+      host: 'mongo-2.mongo.hubble-system.svc.cluster.local:27017',
+      arbiterOnly: false,
+      buildIndexes: true,
+      hidden: false,
+      priority: 1,
+      tags: {},
+      slaveDelay: 0,
+      votes: 1
+    }
+  ],
+  settings: {
+    chainingAllowed: true,
+    heartbeatIntervalMillis: 2000,
+    heartbeatTimeoutSecs: 10,
+    electionTimeoutMillis: 10000,
+    catchUpTimeoutMillis: -1,
+    catchUpTakeoverDelayMillis: 30000,
+    getLastErrorModes: {},
+    getLastErrorDefaults: { w: 1, wtimeout: 0 },
+    replicaSetId: 64cda1020771d961dde0d130
+  }
+}
+🚀 ~ file: mongo.js:168 ~ addNewMembers ~ memberIds: [ 0 ]
+🚀 ~ file: mongo.js:208 ~ addNewMembers ~ rsConfig: {
+  _id: 'rs0',
+  version: 3,
+  term: 1,
+  protocolVersion: 1,
+  writeConcernMajorityJournalDefault: true,
+  members: [
+    {
+      _id: 0,
+      host: 'mongo-2.mongo.hubble-system.svc.cluster.local:27017',
+      arbiterOnly: false,
+      buildIndexes: true,
+      hidden: false,
+      priority: 1,
+      tags: {},
+      slaveDelay: 0,
+      votes: 1
+    },
+    {
+      _id: 1,
+      host: 'mongo-0.mongo.hubble-system.svc.cluster.local:27017'
+    }
+  ],
+  settings: {
+    chainingAllowed: true,
+    heartbeatIntervalMillis: 2000,
+    heartbeatTimeoutSecs: 10,
+    electionTimeoutMillis: 10000,
+    catchUpTimeoutMillis: -1,
+    catchUpTakeoverDelayMillis: 30000,
+    getLastErrorModes: {},
+    getLastErrorDefaults: { w: 1, wtimeout: 0 },
+    replicaSetId: 64cda1020771d961dde0d130
+  }
+}
+🚀 ~ file: mongo.js:208 ~ addNewMembers ~ rsConfig: {
+  _id: 'rs0',
+  version: 3,
+  term: 1,
+  protocolVersion: 1,
+  writeConcernMajorityJournalDefault: true,
+  members: [
+    {
+      _id: 0,
+      host: 'mongo-2.mongo.hubble-system.svc.cluster.local:27017',
+      arbiterOnly: false,
+      buildIndexes: true,
+      hidden: false,
+      priority: 1,
+      tags: {},
+      slaveDelay: 0,
+      votes: 1
+    },
+    {
+      _id: 1,
+      host: 'mongo-0.mongo.hubble-system.svc.cluster.local:27017'
+    },
+    {
+      _id: 2,
+      host: 'mongo-1.mongo.hubble-system.svc.cluster.local:27017'
+    }
+  ],
+  settings: {
+    chainingAllowed: true,
+    heartbeatIntervalMillis: 2000,
+    heartbeatTimeoutSecs: 10,
+    electionTimeoutMillis: 10000,
+    catchUpTimeoutMillis: -1,
+    catchUpTakeoverDelayMillis: 30000,
+    getLastErrorModes: {},
+    getLastErrorDefaults: { w: 1, wtimeout: 0 },
+    replicaSetId: 64cda1020771d961dde0d130
+  }
+}
+replSetReconfig {
+  _id: 'rs0',
+  version: 3,
+  term: 1,
+  protocolVersion: 1,
+  writeConcernMajorityJournalDefault: true,
+  members: [
+    {
+      _id: 0,
+      host: 'mongo-2.mongo.hubble-system.svc.cluster.local:27017',
+      arbiterOnly: false,
+      buildIndexes: true,
+      hidden: false,
+      priority: 1,
+      tags: {},
+      slaveDelay: 0,
+      votes: 1
+    },
+    {
+      _id: 1,
+      host: 'mongo-0.mongo.hubble-system.svc.cluster.local:27017'
+    },
+    {
+      _id: 2,
+      host: 'mongo-1.mongo.hubble-system.svc.cluster.local:27017'
+    }
+  ],
+  settings: {
+    chainingAllowed: true,
+    heartbeatIntervalMillis: 2000,
+    heartbeatTimeoutSecs: 10,
+    electionTimeoutMillis: 10000,
+    catchUpTimeoutMillis: -1,
+    catchUpTakeoverDelayMillis: 30000,
+    getLastErrorModes: {},
+    getLastErrorDefaults: { w: 1, wtimeout: 0 },
+    replicaSetId: 64cda1020771d961dde0d130
+  }
+}
+Error in workloop Error [MongoError]: Non force replica set reconfig can only add or remove at most 1 voting member.
+    at MongoError.create (/opt/cvallance/mongo-k8s-sidecar/node_modules/mongodb-core/lib/error.js:31:11)
+    at /opt/cvallance/mongo-k8s-sidecar/node_modules/mongodb-core/lib/connection/pool.js:497:72
+    at authenticateStragglers (/opt/cvallance/mongo-k8s-sidecar/node_modules/mongodb-core/lib/connection/pool.js:443:16)
+    at Connection.messageHandler (/opt/cvallance/mongo-k8s-sidecar/node_modules/mongodb-core/lib/connection/pool.js:477:5)
+    at Socket.<anonymous> (/opt/cvallance/mongo-k8s-sidecar/node_modules/mongodb-core/lib/connection/connection.js:333:22)
+    at Socket.emit (node:events:514:28)
+    at addChunk (node:internal/streams/readable:343:12)
+    at readableAddChunk (node:internal/streams/readable:316:9)
+    at Readable.push (node:internal/streams/readable:253:10)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
+  operationTime: Timestamp { _bsontype: 'Timestamp', low_: 1, high_: 1691197759 },
+  ok: 0,
+  errmsg: 'Non force replica set reconfig can only add or remove at most 1 voting member.',
+  code: 103,
+  codeName: 'NewReplicaSetConfigurationIncompatible',
+  '$clusterTime': {
+    clusterTime: Timestamp { _bsontype: 'Timestamp', low_: 1, high_: 1691197759 },
+    signature: { hash: [Binary], keyId: [Long] }
+  }
+}
+🚀 ~ file: mongo.js:9 ~ getDb ~ host: [Function (anonymous)]
+🚀 ~ file: mongo.js:21 ~ getDb ~ host: 127.0.0.1
+🚀 ~ file: mongo.js:33 ~ err: null
+Db.prototype.authenticate method will no longer be available in the next major release 3.x as MongoDB 3.6 will only allow auth against users in the admin db and will no longer allow multiple credentials on a socket. Please authenticate using MongoClient.connect with auth credentials.
+🚀 ~ file: worker.js:41 ~ workloop ~ err: null
+🚀 ~ file: worker.js:41 ~ workloop ~ results: [
+  [
+    { metadata: [Object], spec: [Object], status: [Object] },
+    { metadata: [Object], spec: [Object], status: [Object] },
+    { metadata: [Object], spec: [Object], status: [Object] }
+  ],
+  Db {
+    _events: [Object: null prototype] {},
+    _eventsCount: 0,
+    _maxListeners: undefined,
+    s: {
+      databaseName: 'admin',
+      dbCache: {},
+      children: [],
+      topology: [Server],
+      options: [Object],
+      logger: [Logger],
+      bson: BSON {},
+      authSource: undefined,
+      readPreference: undefined,
+      bufferMaxEntries: -1,
+      parentDb: null,
+      pkFactory: undefined,
+      nativeParser: undefined,
+      promiseLibrary: [Function: Promise],
+      noListener: false,
+      readConcern: undefined
+    },
+    serverConfig: [Getter],
+    bufferMaxEntries: [Getter],
+    databaseName: [Getter],
+    [Symbol(kCapture)]: false
+  }
+]
+🚀 ~ file: worker.js:54 ~ workloop ~ pods: [
+  {
+    metadata: {
+      name: 'mongo-0',
+      generateName: 'mongo-',
+      namespace: 'hubble-system',
+      uid: 'f40d7a69-b0a3-4a07-b463-c21b3d731f47',
+      resourceVersion: '1299696',
+      creationTimestamp: '2023-08-05T01:07:37Z',
+      labels: [Object],
+      annotations: [Object],
+      ownerReferences: [Array],
+      managedFields: [Array]
+    },
+    spec: {
+      volumes: [Array],
+      containers: [Array],
+      restartPolicy: 'Always',
+      terminationGracePeriodSeconds: 30,
+      dnsPolicy: 'ClusterFirst',
+      serviceAccountName: 'spectro-hubble',
+      serviceAccount: 'spectro-hubble',
+      nodeName: 'spectro-mgmt-cluster-cp-6zjwc',
+      securityContext: {},
+      hostname: 'mongo-0',
+      subdomain: 'mongo',
+      affinity: [Object],
+      schedulerName: 'default-scheduler',
+      tolerations: [Array],
+      priority: 0,
+      enableServiceLinks: true,
+      preemptionPolicy: 'PreemptLowerPriority'
+    },
+    status: {
+      phase: 'Running',
+      conditions: [Array],
+      hostIP: '10.10.165.12',
+      podIP: '172.16.14.170',
+      podIPs: [Array],
+      startTime: '2023-08-05T01:07:40Z',
+      containerStatuses: [Array],
+      qosClass: 'Burstable'
+    }
+  },
+  {
+    metadata: {
+      name: 'mongo-1',
+      generateName: 'mongo-',
+      namespace: 'hubble-system',
+      uid: '5ee1c520-b87c-4bc3-83e8-26d8235c3064',
+      resourceVersion: '1299704',
+      creationTimestamp: '2023-08-05T01:07:37Z',
+      labels: [Object],
+      annotations: [Object],
+      ownerReferences: [Array],
+      managedFields: [Array]
+    },
+    spec: {
+      volumes: [Array],
+      containers: [Array],
+      restartPolicy: 'Always',
+      terminationGracePeriodSeconds: 30,
+      dnsPolicy: 'ClusterFirst',
+      serviceAccountName: 'spectro-hubble',
+      serviceAccount: 'spectro-hubble',
+      nodeName: 'spectro-mgmt-cluster-cp-9b9q5',
+      securityContext: {},
+      hostname: 'mongo-1',
+      subdomain: 'mongo',
+      affinity: [Object],
+      schedulerName: 'default-scheduler',
+      tolerations: [Array],
+      priority: 0,
+      enableServiceLinks: true,
+      preemptionPolicy: 'PreemptLowerPriority'
+    },
+    status: {
+      phase: 'Running',
+      conditions: [Array],
+      hostIP: '10.10.165.13',
+      podIP: '172.16.12.43',
+      podIPs: [Array],
+      startTime: '2023-08-05T01:07:40Z',
+      containerStatuses: [Array],
+      qosClass: 'Burstable'
+    }
+  },
+  {
+    metadata: {
+      name: 'mongo-2',
+      generateName: 'mongo-',
+      namespace: 'hubble-system',
+      uid: '18d7ba81-b62f-4fbe-93a7-cfebfd372b4c',
+      resourceVersion: '1299737',
+      creationTimestamp: '2023-08-05T01:07:37Z',
+      labels: [Object],
+      annotations: [Object],
+      ownerReferences: [Array],
+      managedFields: [Array]
+    },
+    spec: {
+      volumes: [Array],
+      containers: [Array],
+      restartPolicy: 'Always',
+      terminationGracePeriodSeconds: 30,
+      dnsPolicy: 'ClusterFirst',
+      serviceAccountName: 'spectro-hubble',
+      serviceAccount: 'spectro-hubble',
+      nodeName: 'spectro-mgmt-cluster-cp-t67rh',
+      securityContext: {},
+      hostname: 'mongo-2',
+      subdomain: 'mongo',
+      affinity: [Object],
+      schedulerName: 'default-scheduler',
+      tolerations: [Array],
+      priority: 0,
+      enableServiceLinks: true,
+      preemptionPolicy: 'PreemptLowerPriority'
+    },
+    status: {
+      phase: 'Running',
+      conditions: [Array],
+      hostIP: '10.10.165.11',
+      podIP: '172.16.10.179',
+      podIPs: [Array],
+      startTime: '2023-08-05T01:07:41Z',
+      containerStatuses: [Array],
+      qosClass: 'Burstable'
+    }
+  }
+]
+🚀 ~ file: worker.js:111 ~ inReplicaSet ~ status: {
+  set: 'rs0',
+  date: 2023-08-05T01:09:40.315Z,
+  myState: 1,
+  term: 1,
+  syncSourceHost: '',
+  syncSourceId: -1,
+  heartbeatIntervalMillis: 2000,
+  majorityVoteCount: 1,
+  writeMajorityCount: 1,
+  votingMembersCount: 1,
+  writableVotingMembersCount: 1,
+  optimes: {
+    lastCommittedOpTime: { ts: [Timestamp], t: 1 },
+    lastCommittedWallTime: 2023-08-05T01:09:39.655Z,
+    readConcernMajorityOpTime: { ts: [Timestamp], t: 1 },
+    readConcernMajorityWallTime: 2023-08-05T01:09:39.655Z,
+    appliedOpTime: { ts: [Timestamp], t: 1 },
+    durableOpTime: { ts: [Timestamp], t: 1 },
+    lastAppliedWallTime: 2023-08-05T01:09:39.655Z,
+    lastDurableWallTime: 2023-08-05T01:09:39.655Z
+  },
+  lastStableRecoveryTimestamp: Timestamp { _bsontype: 'Timestamp', low_: 1, high_: 1691197759 },
+  electionCandidateMetrics: {
+    lastElectionReason: 'electionTimeout',
+    lastElectionDate: 2023-08-05T01:08:19.518Z,
+    electionTerm: 1,
+    lastCommittedOpTimeAtElection: { ts: [Timestamp], t: -1 },
+    lastSeenOpTimeAtElection: { ts: [Timestamp], t: -1 },
+    numVotesNeeded: 1,
+    priorityAtElection: 1,
+    electionTimeoutMillis: 10000,
+    newTermStartDate: 2023-08-05T01:08:19.607Z,
+    wMajorityWriteAvailabilityDate: 2023-08-05T01:08:19.647Z
+  },
+  members: [
+    {
+      _id: 0,
+      name: 'mongo-2.mongo.hubble-system.svc.cluster.local:27017',
+      health: 1,
+      state: 1,
+      stateStr: 'PRIMARY',
+      uptime: 104,
+      optime: [Object],
+      optimeDate: 2023-08-05T01:09:39.000Z,
+      lastAppliedWallTime: 2023-08-05T01:09:39.655Z,
+      lastDurableWallTime: 2023-08-05T01:09:39.655Z,
+      syncSourceHost: '',
+      syncSourceId: -1,
+      infoMessage: 'Could not find member to sync from',
+      electionTime: [Timestamp],
+      electionDate: 2023-08-05T01:08:19.000Z,
+      configVersion: 3,
+      configTerm: 1,
+      self: true,
+      lastHeartbeatMessage: ''
+    }
+  ],
+  ok: 1,
+  '$clusterTime': {
+    clusterTime: Timestamp { _bsontype: 'Timestamp', low_: 1, high_: 1691197779 },
+    signature: { hash: [Binary], keyId: [Long] }
+  },
+  operationTime: Timestamp { _bsontype: 'Timestamp', low_: 1, high_: 1691197779 }
+}
+🚀 ~ file: worker.js:118 ~ inReplicaSet ~ member: {
+  _id: 0,
+  name: 'mongo-2.mongo.hubble-system.svc.cluster.local:27017',
+  health: 1,
+  state: 1,
+  stateStr: 'PRIMARY',
+  uptime: 104,
+  optime: {
+    ts: Timestamp { _bsontype: 'Timestamp', low_: 1, high_: 1691197779 },
+    t: 1
+  },
+  optimeDate: 2023-08-05T01:09:39.000Z,
+  lastAppliedWallTime: 2023-08-05T01:09:39.655Z,
+  lastDurableWallTime: 2023-08-05T01:09:39.655Z,
+  syncSourceHost: '',
+  syncSourceId: -1,
+  infoMessage: 'Could not find member to sync from',
+  electionTime: Timestamp { _bsontype: 'Timestamp', low_: 2, high_: 1691197699 },
+  electionDate: 2023-08-05T01:08:19.000Z,
+  configVersion: 3,
+  configTerm: 1,
+  self: true,
+  lastHeartbeatMessage: ''
+}
+Addresses to add:     [
+  'mongo-0.mongo.hubble-system.svc.cluster.local:27017',
+  'mongo-1.mongo.hubble-system.svc.cluster.local:27017'
+]
+Addresses to remove:  []
+🚀 ~ file: mongo.js:147 ~ rsConfig: {
+  _id: 'rs0',
+  version: 3,
+  term: 1,
+  protocolVersion: 1,
+  writeConcernMajorityJournalDefault: true,
+  members: [
+    {
+      _id: 0,
+      host: 'mongo-2.mongo.hubble-system.svc.cluster.local:27017',
+      arbiterOnly: false,
+      buildIndexes: true,
+      hidden: false,
+      priority: 1,
+      tags: {},
+      slaveDelay: 0,
+      votes: 1
+    }
+  ],
+  settings: {
+    chainingAllowed: true,
+    heartbeatIntervalMillis: 2000,
+    heartbeatTimeoutSecs: 10,
+    electionTimeoutMillis: 10000,
+    catchUpTimeoutMillis: -1,
+    catchUpTakeoverDelayMillis: 30000,
+    getLastErrorModes: {},
+    getLastErrorDefaults: { w: 1, wtimeout: 0 },
+    replicaSetId: 64cda1020771d961dde0d130
+  }
+}
+🚀 ~ file: mongo.js:168 ~ addNewMembers ~ memberIds: [ 0 ]
+🚀 ~ file: mongo.js:208 ~ addNewMembers ~ rsConfig: {
+  _id: 'rs0',
+  version: 3,
+  term: 1,
+  protocolVersion: 1,
+  writeConcernMajorityJournalDefault: true,
+  members: [
+    {
+      _id: 0,
+      host: 'mongo-2.mongo.hubble-system.svc.cluster.local:27017',
+      arbiterOnly: false,
+      buildIndexes: true,
+      hidden: false,
+      priority: 1,
+      tags: {},
+      slaveDelay: 0,
+      votes: 1
+    },
+    {
+      _id: 1,
+      host: 'mongo-0.mongo.hubble-system.svc.cluster.local:27017'
+    }
+  ],
+  settings: {
+    chainingAllowed: true,
+    heartbeatIntervalMillis: 2000,
+    heartbeatTimeoutSecs: 10,
+    electionTimeoutMillis: 10000,
+    catchUpTimeoutMillis: -1,
+    catchUpTakeoverDelayMillis: 30000,
+    getLastErrorModes: {},
+    getLastErrorDefaults: { w: 1, wtimeout: 0 },
+    replicaSetId: 64cda1020771d961dde0d130
+  }
+}
+🚀 ~ file: mongo.js:208 ~ addNewMembers ~ rsConfig: {
+  _id: 'rs0',
+  version: 3,
+  term: 1,
+  protocolVersion: 1,
+  writeConcernMajorityJournalDefault: true,
+  members: [
+    {
+      _id: 0,
+      host: 'mongo-2.mongo.hubble-system.svc.cluster.local:27017',
+      arbiterOnly: false,
+      buildIndexes: true,
+      hidden: false,
+      priority: 1,
+      tags: {},
+      slaveDelay: 0,
+      votes: 1
+    },
+    {
+      _id: 1,
+      host: 'mongo-0.mongo.hubble-system.svc.cluster.local:27017'
+    },
+    {
+      _id: 2,
+      host: 'mongo-1.mongo.hubble-system.svc.cluster.local:27017'
+    }
+  ],
+  settings: {
+    chainingAllowed: true,
+    heartbeatIntervalMillis: 2000,
+    heartbeatTimeoutSecs: 10,
+    electionTimeoutMillis: 10000,
+    catchUpTimeoutMillis: -1,
+    catchUpTakeoverDelayMillis: 30000,
+    getLastErrorModes: {},
+    getLastErrorDefaults: { w: 1, wtimeout: 0 },
+    replicaSetId: 64cda1020771d961dde0d130
+  }
+}
+replSetReconfig {
+  _id: 'rs0',
+  version: 3,
+  term: 1,
+  protocolVersion: 1,
+  writeConcernMajorityJournalDefault: true,
+  members: [
+    {
+      _id: 0,
+      host: 'mongo-2.mongo.hubble-system.svc.cluster.local:27017',
+      arbiterOnly: false,
+      buildIndexes: true,
+      hidden: false,
+      priority: 1,
+      tags: {},
+      slaveDelay: 0,
+      votes: 1
+    },
+    {
+      _id: 1,
+      host: 'mongo-0.mongo.hubble-system.svc.cluster.local:27017'
+    },
+    {
+      _id: 2,
+      host: 'mongo-1.mongo.hubble-system.svc.cluster.local:27017'
+    }
+  ],
+  settings: {
+    chainingAllowed: true,
+    heartbeatIntervalMillis: 2000,
+    heartbeatTimeoutSecs: 10,
+    electionTimeoutMillis: 10000,
+    catchUpTimeoutMillis: -1,
+    catchUpTakeoverDelayMillis: 30000,
+    getLastErrorModes: {},
+    getLastErrorDefaults: { w: 1, wtimeout: 0 },
+    replicaSetId: 64cda1020771d961dde0d130
+  }
+}
+Error in workloop Error [MongoError]: Non force replica set reconfig can only add or remove at most 1 voting member.
+    at MongoError.create (/opt/cvallance/mongo-k8s-sidecar/node_modules/mongodb-core/lib/error.js:31:11)
+    at /opt/cvallance/mongo-k8s-sidecar/node_modules/mongodb-core/lib/connection/pool.js:497:72
+    at authenticateStragglers (/opt/cvallance/mongo-k8s-sidecar/node_modules/mongodb-core/lib/connection/pool.js:443:16)
+    at Connection.messageHandler (/opt/cvallance/mongo-k8s-sidecar/node_modules/mongodb-core/lib/connection/pool.js:477:5)
+    at Socket.<anonymous> (/opt/cvallance/mongo-k8s-sidecar/node_modules/mongodb-core/lib/connection/connection.js:333:22)
+    at Socket.emit (node:events:514:28)
+    at addChunk (node:internal/streams/readable:343:12)
+    at readableAddChunk (node:internal/streams/readable:316:9)
+    at Readable.push (node:internal/streams/readable:253:10)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
+  operationTime: Timestamp { _bsontype: 'Timestamp', low_: 1, high_: 1691197779 },
+  ok: 0,
+  errmsg: 'Non force replica set reconfig can only add or remove at most 1 voting member.',
+  code: 103,
+  codeName: 'NewReplicaSetConfigurationIncompatible',
+  '$clusterTime': {
+    clusterTime: Timestamp { _bsontype: 'Timestamp', low_: 1, high_: 1691197779 },
+    signature: { hash: [Binary], keyId: [Long] }
+  }
+}
