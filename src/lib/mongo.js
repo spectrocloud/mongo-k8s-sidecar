@@ -1,12 +1,14 @@
-var Db = require("mongodb").Db;
-var MongoServer = require("mongodb").Server;
+// var Db = require("mongodb").Db;
+// var MongoServer = require("mongodb").Server;
 var async = require("async");
 var config = require("./config");
+const MongoClient = require("mongodb").MongoClient;
 
 var localhost = "127.0.0.1"; //Can access mongo as localhost from a sidecar
 
 var getDb = function (host, done) {
   //If they called without host like getDb(function(err, db) { ... });
+  console.log("🚀 ~ file: mongo.js:12 ~ getDb ~ arguments:", arguments);
   if (arguments.length === 1) {
     if (typeof arguments[0] === "function") {
       done = arguments[0];
@@ -24,55 +26,69 @@ var getDb = function (host, done) {
   if (config.mongoSSLEnabled) {
     mongoOptions = {
       ssl: config.mongoSSLEnabled,
-      sslAllowInvalidCertificates: config.mongoSSLAllowInvalidCertificates,
-      sslAllowInvalidHostnames: config.mongoSSLAllowInvalidHostnames,
+      tlsAllowInvalidCertificates: config.mongoSSLAllowInvalidCertificates,
+      tlsAllowInvalidHostnames: config.mongoSSLAllowInvalidHostnames,
       sslCA: config.mongoSSLCaCert,
       sslCert: config.mongoSSLCert,
       sslKey: config.mongoSSLKey,
     };
   }
 
-  var authOptions = {
-    authMechanism: "SCRAM-SHA-256"
+  const user = encodeURIComponent(config.username);
+  console.log("🚀 ~ file: mongo.js:37 ~ getDb ~ user:", user);
+  const password = encodeURIComponent(config.password);
+  const authMechanism = "SCRAM-SHA-256";
+
+  if (user) {
+    const url = `mongodb://${user}:${password}@localhost:27017/?authMechanism=${authMechanism}&ssl=true`;
+
+    console.log("🚀 ~ file: mongo.js:44 ~ getDb ~ url:", url);
+    // Create a new MongoClient
+    const client = new MongoClient(url, mongoOptions);
+
+    // Use connect method to connect to the Server
+    client.connect(function (err) {
+      if (err) {
+        client.close();
+        done(err);
+      }
+      console.log("Connected correctly to server");
+
+      let db;
+      setTimeout((done) => {
+        db = client.db("admin");
+        return done(null, db);
+      }, 10000);
+    });
   }
 
-/* const MongoClient = require('mongodb').MongoClient;
-const assert = require('assert');
+  // var mongoDb = new Db(
+  //   config.database,
+  //   new MongoServer(host, config.mongoPort, mongoOptions)
+  // );
 
-const user = encodeURIComponent('dave');
-const password = encodeURIComponent('abc123');
-const authMechanism = 'DEFAULT';
+  // mongoDb.open(function (err, db) {
+  //   if (err) {
+  //     return done(err);
+  //   }
 
-// Connection URL
-const url = `mongodb://${user}:${password}@localhost:27017/?authMechanism=${authMechanism}`;
- */
-  var mongoDb = new Db(
-    config.database,
-    new MongoServer(host, config.mongoPort, mongoOptions)
-  );
+  //   if (config.username) {
+  //     mongoDb.authenticate(
+  //       config.username,
+  //       config.password,
+  //       authOptions,
+  //       function (err, result) {
+  //         if (err) {
+  //           return done(err);
+  //         }
 
-  mongoDb.open(function (err, db) {
-    if (err) {
-      return done(err);
-    }
-
-    if (config.username) {
-      mongoDb.authenticate(
-        config.username,
-        config.password,
-        authOptions,
-        function (err, result) {
-          if (err) {
-            return done(err);
-          }
-
-          return done(null, db);
-        }
-      );
-    } else {
-      return done(null, db);
-    }
-  });
+  //         return done(null, db);
+  //       }
+  //     );
+  //   } else {
+  //     return done(null, db);
+  //   }
+  // });
 };
 
 var replSetGetConfig = function (db, done) {
