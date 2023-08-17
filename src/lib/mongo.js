@@ -32,6 +32,20 @@ var getDb = function (host, done) {
     };
   }
 
+  var authOptions = {
+    authMechanism: "SCRAM-SHA-256"
+  }
+
+/* const MongoClient = require('mongodb').MongoClient;
+const assert = require('assert');
+
+const user = encodeURIComponent('dave');
+const password = encodeURIComponent('abc123');
+const authMechanism = 'DEFAULT';
+
+// Connection URL
+const url = `mongodb://${user}:${password}@localhost:27017/?authMechanism=${authMechanism}`;
+ */
   var mongoDb = new Db(
     config.database,
     new MongoServer(host, config.mongoPort, mongoOptions)
@@ -46,6 +60,7 @@ var getDb = function (host, done) {
       mongoDb.authenticate(
         config.username,
         config.password,
+        authOptions,
         function (err, result) {
           if (err) {
             return done(err);
