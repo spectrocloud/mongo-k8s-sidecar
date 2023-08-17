@@ -54,11 +54,8 @@ var getDb = function (host, done) {
       }
       console.log("Connected correctly to server");
 
-      let db;
-      setTimeout((done) => {
-        db = client.db("admin");
-        return done(null, db);
-      }, 10000);
+      let db = client.db("admin");
+      return done(null, db);
     });
   }
 
