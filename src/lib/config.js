@@ -143,6 +143,7 @@ var stringToBool = function (boolStr) {
 };
 
 module.exports = {
+  enableFips: stringToBool(process.env.ENABLE_FIPS) || false,
   namespace: process.env.KUBE_NAMESPACE,
   username: process.env.MONGODB_USERNAME,
   password: process.env.MONGODB_PASSWORD,
