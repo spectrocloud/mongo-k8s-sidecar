@@ -3,6 +3,8 @@ var sleep = require("system-sleep");
 var crypto = require("crypto");
 const config = require("./lib/config");
 
+const sleepTime = 15
+
 try {
   console.log("Requested Fips mode is set to: ", config.enableFips);
   crypto.setFips(config.enableFips);
@@ -11,10 +13,8 @@ try {
 }
 console.log("Fips mode actual status isFipsEnabled", crypto.getFips())
 
-console.log(
-  "Starting up mongo-k8s-sidecar, waiting 15 seconds for Mongodb to start"
-);
-sleep(15 * 1000);
+console.log("Starting up mongo-k8s-sidecar, waiting %d seconds for Mongodb to start", sleepTime);
+sleep(sleepTime * 1000);
 
 worker.init(function (err) {
   if (err) {
