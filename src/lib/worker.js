@@ -62,21 +62,24 @@ var workloop = function workloop() {
         "No pods are currently running, probably just give them some time."
       );
     }
-
+    console.log("fetching replicaset status")
     //Lets try and get the rs status for this mongo instance
     //If it works with no errors, they are in the rs
     //If we get a specific error, it means they aren't in the rs
     mongo.replSetGetStatus(db, function (err, status) {
       if (err) {
         if (err.code && err.code == 94) {
+          console.log("mongodb pods are not in replicaset yet")
           notInReplicaSet(db, pods, function (err) {
             finish(err, db, client);
           });
         } else if (err.code && err.code == 93) {
+          console.log("mongodb pods are in invalid replicaset state")
           invalidReplicaSet(db, pods, status, function (err) {
             finish(err, db, client);
           });
         } else {
+          console.log("mongodb pods are in unhandled error state")
           finish(err, db, client);
         }
         return;
@@ -96,6 +99,7 @@ var finish = function (err, db, client) {
 
   if (client && client.close) {
     client.close();
+    console.log("closed client connection")
   }
 
   setTimeout(workloop, loopSleepSeconds * 1000);
@@ -113,6 +117,7 @@ var inReplicaSet = function (db, pods, status, done) {
 
     if (member.state === 1) {
       if (member.self) {
+        console.log("starting the primary work")
         return primaryWork(db, pods, members, false, done);
       }
 
@@ -279,6 +284,13 @@ var memberShouldBeRemoved = function (member) {
       .subtract(unhealthySeconds, "seconds")
       .isAfter(member.lastHeartbeatRecv)
   );
+  // if (!member.health && moment().subtract(unhealthySeconds, "seconds").isAfter(member.lastHeartbeatRecv))
+  // {
+  //   return true
+  // }
+  // var splits = member.name.split(":")
+  // var name = splits[0]
+  // return (!isIPAddress(name) && !hasSuffix(name))
 };
 
 /**
@@ -327,6 +339,39 @@ var getPodStableNetworkAddressAndPort = function (pod) {
     mongoPort
   );
 };
+
+var hasSuffix = function (member) {
+  // console.log("🚀 ~ file: worker.js:341 ~ hasSuffix ~ member:", member)
+  suffix =     (config.k8sMongoServiceName + "." +
+  config.namespace +
+  ".svc." +
+  config.k8sClusterDomain +
+  ":" +
+  config.mongoPort)
+  if (member.name) {
+    return member.name.endsWith(suffix)
+  }
+  return true //during initial stage we might get member name as empty so return true
+}
+
+function isIPAddress(ipAddress) {
+  // Check if the string is a valid IP address
+  var parts = ipAddress.split(".");
+  if (parts.length !== 4) {
+    return false;
+  }
+
+  // Check if each part is a valid number between 0 and 255
+  for (var i = 0; i < parts.length; i++) {
+    var part = parseInt(parts[i], 10);
+    if (part < 0 || part > 255) {
+      return false;
+    }
+  }
+
+  // The string is a valid IP address
+  return true;
+}
 
 module.exports = {
   init: init,

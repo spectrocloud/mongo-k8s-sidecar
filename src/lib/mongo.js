@@ -8,7 +8,6 @@ var localhost = "127.0.0.1"; //Can access mongo as localhost from a sidecar
 
 var getDb = function (host, done) {
   //If they called without host like getDb(function(err, db) { ... });
-  console.log("🚀 ~ file: mongo.js:12 ~ getDb ~ arguments:", arguments);
   if (arguments.length === 1) {
     if (typeof arguments[0] === "function") {
       done = arguments[0];
@@ -35,14 +34,13 @@ var getDb = function (host, done) {
   }
 
   const user = encodeURIComponent(config.username);
-  console.log("🚀 ~ file: mongo.js:37 ~ getDb ~ user:", user);
   const password = encodeURIComponent(config.password);
   const authMechanism = "SCRAM-SHA-256";
-
+  let url = `mongodb://${host}:27017/?authMechanism=${authMechanism}&ssl=${config.mongoSSLEnabled}`
   if (user) {
-    const url = `mongodb://${user}:${password}@${host}:27017/?authMechanism=${authMechanism}&ssl=true`;
-
-    console.log("🚀 ~ file: mongo.js:44 ~ getDb ~ url:", url);
+     url = `mongodb://${user}:${password}@${host}:27017/?authMechanism=${authMechanism}&ssl=${config.mongoSSLEnabled}`;
+  }
+    // console.log("🚀 ~ file: mongo.js:44 ~ getDb ~ url:", url);
     // Create a new MongoClient
     const client = new MongoClient(url, mongoOptions);
 
@@ -52,12 +50,12 @@ var getDb = function (host, done) {
         client.close();
         done(err);
       }
-      console.log("Connected correctly to server");
+      console.log("Connected to server running on the host:" + host);
 
-      let db = client.db("admin");
+      let db = client.db(config.database);
       return done(null, db, client);
     });
-  }
+  
 };
 
 var replSetGetConfig = function (db, done) {
@@ -73,6 +71,7 @@ var replSetGetConfig = function (db, done) {
 var replSetGetStatus = function (db, done) {
   db.admin().command({ replSetGetStatus: {} }, {}, function (err, results) {
     if (err) {
+      console.log("got an error while fetching replicaset status")
       return done(err);
     }
 
@@ -234,12 +233,14 @@ var removeDeadMembers = function (rsConfig, addrsToRemove) {
 };
 
 var isInReplSet = function (ip, done) {
+  console.log("isInReplSet: getting db using host:"+ ip)
   getDb(ip, function (err, db, client) {
     if (err) {
       return done(err);
     }
 
     replSetGetConfig(db, function (err, rsConfig) {
+      console.log("isInReplSet.replSetGetConfig: closing connection to host:"+ ip)
       client.close();
       if (!err && rsConfig) {
         done(null, true);
