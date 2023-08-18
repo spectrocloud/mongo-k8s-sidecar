@@ -1,7 +1,6 @@
-var Db = require("mongodb").Db;
-var MongoServer = require("mongodb").Server;
 var async = require("async");
 var config = require("./config");
+const MongoClient = require("mongodb").MongoClient;
 
 var localhost = "127.0.0.1"; //Can access mongo as localhost from a sidecar
 
@@ -24,40 +23,36 @@ var getDb = function (host, done) {
   if (config.mongoSSLEnabled) {
     mongoOptions = {
       ssl: config.mongoSSLEnabled,
-      sslAllowInvalidCertificates: config.mongoSSLAllowInvalidCertificates,
-      sslAllowInvalidHostnames: config.mongoSSLAllowInvalidHostnames,
+      tlsAllowInvalidCertificates: config.mongoSSLAllowInvalidCertificates,
+      tlsAllowInvalidHostnames: config.mongoSSLAllowInvalidHostnames,
       sslCA: config.mongoSSLCaCert,
       sslCert: config.mongoSSLCert,
       sslKey: config.mongoSSLKey,
     };
   }
 
-  var mongoDb = new Db(
-    config.database,
-    new MongoServer(host, config.mongoPort, mongoOptions)
-  );
+  const user = encodeURIComponent(config.username);
+  const password = encodeURIComponent(config.password);
+  const authMechanism = "SCRAM-SHA-256";
+  let url = `mongodb://${host}:27017/?authMechanism=${authMechanism}&ssl=${config.mongoSSLEnabled}`;
+  if (user) {
+     url = `mongodb://${user}:${password}@${host}:27017/?authMechanism=${authMechanism}&ssl=${config.mongoSSLEnabled}`;
+  }
+    // Create a new MongoClient
+    const client = new MongoClient(url, mongoOptions);
 
-  mongoDb.open(function (err, db) {
-    if (err) {
-      return done(err);
-    }
+    // Use connect method to connect to the Server
+    client.connect(function (err) {
+      if (err) {
+        client.close();
+        done(err);
+      }
+      console.log("Connected to server running on the host:" + host);
 
-    if (config.username) {
-      mongoDb.authenticate(
-        config.username,
-        config.password,
-        function (err, result) {
-          if (err) {
-            return done(err);
-          }
-
-          return done(null, db);
-        }
-      );
-    } else {
-      return done(null, db);
-    }
-  });
+      let db = client.db(config.database);
+      return done(null, db, client);
+    });
+  
 };
 
 var replSetGetConfig = function (db, done) {
@@ -73,6 +68,7 @@ var replSetGetConfig = function (db, done) {
 var replSetGetStatus = function (db, done) {
   db.admin().command({ replSetGetStatus: {} }, {}, function (err, results) {
     if (err) {
+      console.log("got an error while fetching replicaset status")
       return done(err);
     }
 
@@ -234,13 +230,15 @@ var removeDeadMembers = function (rsConfig, addrsToRemove) {
 };
 
 var isInReplSet = function (ip, done) {
-  getDb(ip, function (err, db) {
+  console.log("isInReplSet: getting db using host:", ip)
+  getDb(ip, function (err, db, client) {
     if (err) {
       return done(err);
     }
 
     replSetGetConfig(db, function (err, rsConfig) {
-      db.close();
+      console.log("isInReplSet.replSetGetConfig: closing connection to host:", ip)
+      client.close();
       if (!err && rsConfig) {
         done(null, true);
       } else {

@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 node:alpine
+FROM --platform=linux/amd64 registry.access.redhat.com/ubi8/nodejs-18-minimal:1-65
 
 WORKDIR /opt/cvallance/mongo-k8s-sidecar
 
