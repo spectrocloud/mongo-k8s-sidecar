@@ -36,12 +36,15 @@ var workloop = function workloop() {
   //Do in series so if k8s.getMongoPods fails, it doesn't open a db connection
   async.series([k8s.getMongoPods, mongo.getDb], function (err, results) {
     var db = null;
-    if (Array.isArray(results) && results.length === 2) {
-      db = results[1];
-    }
+    var client = null;
 
     if (err) {
-      return finish(err, db);
+      return finish(err);
+    }
+
+    if (Array.isArray(results) && results.length === 2) {
+      db = results[1][0];
+      client = results[1][1];
     }
 
     var pods = results[0];
@@ -67,32 +70,32 @@ var workloop = function workloop() {
       if (err) {
         if (err.code && err.code == 94) {
           notInReplicaSet(db, pods, function (err) {
-            finish(err, db);
+            finish(err, db, client);
           });
         } else if (err.code && err.code == 93) {
           invalidReplicaSet(db, pods, status, function (err) {
-            finish(err, db);
+            finish(err, db, client);
           });
         } else {
-          finish(err, db);
+          finish(err, db, client);
         }
         return;
       }
 
       inReplicaSet(db, pods, status, function (err) {
-        finish(err, db);
+        finish(err, db, client);
       });
     });
   });
 };
 
-var finish = function (err, db) {
+var finish = function (err, db, client) {
   if (err) {
     console.error("Error in workloop", err);
   }
 
-  if (db && db.close) {
-    db.close();
+  if (client && client.close) {
+    client.close();
   }
 
   setTimeout(workloop, loopSleepSeconds * 1000);

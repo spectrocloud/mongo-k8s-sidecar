@@ -52,9 +52,11 @@ client.connect(function (err) {
 
   const db = client.db("hubbleDB");
 
-  createCapped(db, function () {
-    client.close();
-  });
+  db.command("show dbs");
+  client.close();
+  // createCapped(db, function () {
+  //   client.close();
+  // });
 });
 
 function createCapped(db, callback) {

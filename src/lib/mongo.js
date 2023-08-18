@@ -40,7 +40,7 @@ var getDb = function (host, done) {
   const authMechanism = "SCRAM-SHA-256";
 
   if (user) {
-    const url = `mongodb://${user}:${password}@localhost:27017/?authMechanism=${authMechanism}&ssl=true`;
+    const url = `mongodb://${user}:${password}@${host}:27017/?authMechanism=${authMechanism}&ssl=true`;
 
     console.log("🚀 ~ file: mongo.js:44 ~ getDb ~ url:", url);
     // Create a new MongoClient
@@ -55,37 +55,9 @@ var getDb = function (host, done) {
       console.log("Connected correctly to server");
 
       let db = client.db("admin");
-      return done(null, db);
+      return done(null, db, client);
     });
   }
-
-  // var mongoDb = new Db(
-  //   config.database,
-  //   new MongoServer(host, config.mongoPort, mongoOptions)
-  // );
-
-  // mongoDb.open(function (err, db) {
-  //   if (err) {
-  //     return done(err);
-  //   }
-
-  //   if (config.username) {
-  //     mongoDb.authenticate(
-  //       config.username,
-  //       config.password,
-  //       authOptions,
-  //       function (err, result) {
-  //         if (err) {
-  //           return done(err);
-  //         }
-
-  //         return done(null, db);
-  //       }
-  //     );
-  //   } else {
-  //     return done(null, db);
-  //   }
-  // });
 };
 
 var replSetGetConfig = function (db, done) {
@@ -262,13 +234,13 @@ var removeDeadMembers = function (rsConfig, addrsToRemove) {
 };
 
 var isInReplSet = function (ip, done) {
-  getDb(ip, function (err, db) {
+  getDb(ip, function (err, db, client) {
     if (err) {
       return done(err);
     }
 
     replSetGetConfig(db, function (err, rsConfig) {
-      db.close();
+      client.close();
       if (!err && rsConfig) {
         done(null, true);
       } else {
