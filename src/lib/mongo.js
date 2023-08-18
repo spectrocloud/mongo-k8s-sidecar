@@ -1,5 +1,3 @@
-// var Db = require("mongodb").Db;
-// var MongoServer = require("mongodb").Server;
 var async = require("async");
 var config = require("./config");
 const MongoClient = require("mongodb").MongoClient;
@@ -36,11 +34,10 @@ var getDb = function (host, done) {
   const user = encodeURIComponent(config.username);
   const password = encodeURIComponent(config.password);
   const authMechanism = "SCRAM-SHA-256";
-  let url = `mongodb://${host}:27017/?authMechanism=${authMechanism}&ssl=${config.mongoSSLEnabled}`
+  let url = `mongodb://${host}:27017/?authMechanism=${authMechanism}&ssl=${config.mongoSSLEnabled}`;
   if (user) {
      url = `mongodb://${user}:${password}@${host}:27017/?authMechanism=${authMechanism}&ssl=${config.mongoSSLEnabled}`;
   }
-    // console.log("🚀 ~ file: mongo.js:44 ~ getDb ~ url:", url);
     // Create a new MongoClient
     const client = new MongoClient(url, mongoOptions);
 
@@ -233,14 +230,14 @@ var removeDeadMembers = function (rsConfig, addrsToRemove) {
 };
 
 var isInReplSet = function (ip, done) {
-  console.log("isInReplSet: getting db using host:"+ ip)
+  console.log("isInReplSet: getting db using host:", ip)
   getDb(ip, function (err, db, client) {
     if (err) {
       return done(err);
     }
 
     replSetGetConfig(db, function (err, rsConfig) {
-      console.log("isInReplSet.replSetGetConfig: closing connection to host:"+ ip)
+      console.log("isInReplSet.replSetGetConfig: closing connection to host:", ip)
       client.close();
       if (!err && rsConfig) {
         done(null, true);

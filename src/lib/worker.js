@@ -284,13 +284,6 @@ var memberShouldBeRemoved = function (member) {
       .subtract(unhealthySeconds, "seconds")
       .isAfter(member.lastHeartbeatRecv)
   );
-  // if (!member.health && moment().subtract(unhealthySeconds, "seconds").isAfter(member.lastHeartbeatRecv))
-  // {
-  //   return true
-  // }
-  // var splits = member.name.split(":")
-  // var name = splits[0]
-  // return (!isIPAddress(name) && !hasSuffix(name))
 };
 
 /**
