@@ -1,4 +1,4 @@
-var Client = require('node-kubernetes-client');
+var Client = require('spectro-kubernetes-client');
 var config = require('./config');
 var util = require("util");
 
