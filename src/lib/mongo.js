@@ -141,17 +141,8 @@ var addNewReplSetMembers = function (
     }
     removeDeadMembers(rsConfig, addrToRemove);
     console.log("🚀 ~ file: mongo.js:152 ~ shouldForce:", shouldForce);
-    if (!!shouldForce) {
-      addNewMembers(rsConfig, addrToAdd);
-      replSetReconfig(db, rsConfig, shouldForce, done);
-    } else {
-      addNewMembers(rsConfig, addrToAdd, {
-        shouldApplyReplicaSetReconfig: true,
-        db,
-        shouldForce,
-        done,
-      });
-    }
+    addNewMembers(rsConfig, addrToAdd);
+    replSetReconfig(db, rsConfig, shouldForce, done);
   });
 };
 
@@ -203,14 +194,6 @@ var addNewMembers = function (rsConfig, addrsToAdd, options) {
     };
 
     rsConfig.members.push(cfg);
-    if (!!options) {
-      replSetReconfig(
-        options?.db,
-        rsConfig,
-        options?.shouldForce,
-        options.done
-      );
-    }
   }
 };
 
