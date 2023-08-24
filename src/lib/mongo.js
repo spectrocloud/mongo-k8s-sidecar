@@ -145,17 +145,24 @@ var addNewReplSetMembers = function (
       addNewMembers(rsConfig, addrToAdd);
       replSetReconfig(db, rsConfig, shouldForce, done);
     } else {
-      addNewMembers(rsConfig, addrToAdd, {
+      addNewMembers(rsConfig, addrToAdd);
+      var options = {
         shouldApplyReplicaSetReconfig: true,
         db,
         shouldForce,
         done,
-      });
+      }
+      replSetReconfig(
+          options?.db,
+          rsConfig,
+          options?.shouldForce,
+          options.done
+      );
     }
   });
 };
 
-var addNewMembers = function (rsConfig, addrsToAdd, options) {
+var addNewMembers = function (rsConfig, addrsToAdd) {
   if (!addrsToAdd || !addrsToAdd.length) return;
 
   var memberIds = [];
@@ -203,14 +210,6 @@ var addNewMembers = function (rsConfig, addrsToAdd, options) {
     };
 
     rsConfig.members.push(cfg);
-    if (!!options) {
-      replSetReconfig(
-        options?.db,
-        rsConfig,
-        options?.shouldForce,
-        options.done
-      );
-    }
   }
 };
 
