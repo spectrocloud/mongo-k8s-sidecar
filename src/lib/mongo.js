@@ -36,23 +36,22 @@ var getDb = function (host, done) {
   const authMechanism = "SCRAM-SHA-256";
   let url = `mongodb://${host}:27017/?authMechanism=${authMechanism}&ssl=${config.mongoSSLEnabled}`;
   if (user) {
-     url = `mongodb://${user}:${password}@${host}:27017/?authMechanism=${authMechanism}&ssl=${config.mongoSSLEnabled}`;
+    url = `mongodb://${user}:${password}@${host}:27017/?authMechanism=${authMechanism}&ssl=${config.mongoSSLEnabled}`;
   }
-    // Create a new MongoClient
-    const client = new MongoClient(url, mongoOptions);
+  // Create a new MongoClient
+  const client = new MongoClient(url, mongoOptions);
 
-    // Use connect method to connect to the Server
-    client.connect(function (err) {
-      if (err) {
-        client.close();
-        done(err);
-      }
-      console.log("Connected to server running on the host:" + host);
+  // Use connect method to connect to the Server
+  client.connect(function (err) {
+    if (err) {
+      client.close();
+      done(err);
+    }
+    console.log("Connected to server running on the host:" + host);
 
-      let db = client.db(config.database);
-      return done(null, db, client);
-    });
-  
+    let db = client.db(config.database);
+    return done(null, db, client);
+  });
 };
 
 var replSetGetConfig = function (db, done) {
@@ -68,7 +67,7 @@ var replSetGetConfig = function (db, done) {
 var replSetGetStatus = function (db, done) {
   db.admin().command({ replSetGetStatus: {} }, {}, function (err, results) {
     if (err) {
-      console.log("got an error while fetching replicaset status")
+      console.log("got an error while fetching replicaset status");
       return done(err);
     }
 
@@ -141,17 +140,8 @@ var addNewReplSetMembers = function (
     }
     removeDeadMembers(rsConfig, addrToRemove);
     console.log("🚀 ~ file: mongo.js:152 ~ shouldForce:", shouldForce);
-    if (!!shouldForce) {
-      addNewMembers(rsConfig, addrToAdd);
-      replSetReconfig(db, rsConfig, shouldForce, done);
-    } else {
-      addNewMembers(rsConfig, addrToAdd, {
-        shouldApplyReplicaSetReconfig: true,
-        db,
-        shouldForce,
-        done,
-      });
-    }
+    addNewMembers(rsConfig, addrToAdd);
+    replSetReconfig(db, rsConfig, shouldForce, done);
   });
 };
 
@@ -203,14 +193,6 @@ var addNewMembers = function (rsConfig, addrsToAdd, options) {
     };
 
     rsConfig.members.push(cfg);
-    if (!!options) {
-      replSetReconfig(
-        options?.db,
-        rsConfig,
-        options?.shouldForce,
-        options.done
-      );
-    }
   }
 };
 
@@ -230,14 +212,17 @@ var removeDeadMembers = function (rsConfig, addrsToRemove) {
 };
 
 var isInReplSet = function (ip, done) {
-  console.log("isInReplSet: getting db using host:", ip)
+  console.log("isInReplSet: getting db using host:", ip);
   getDb(ip, function (err, db, client) {
     if (err) {
       return done(err);
     }
 
     replSetGetConfig(db, function (err, rsConfig) {
-      console.log("isInReplSet.replSetGetConfig: closing connection to host:", ip)
+      console.log(
+        "isInReplSet.replSetGetConfig: closing connection to host:",
+        ip
+      );
       client.close();
       if (!err && rsConfig) {
         done(null, true);
