@@ -5,6 +5,8 @@ WORKDIR /opt/spectrocloud/mongo-k8s-sidecar
 COPY package.json /opt/spectrocloud/mongo-k8s-sidecar/package.json
 
 RUN npm install --omit=dev
+# This step is to update any existing packages
+RUN npm update systeminformation
 
 COPY ./src /opt/spectrocloud/mongo-k8s-sidecar/src
 
