@@ -107,19 +107,35 @@ function readfile(path) {
 
 var getSSLKEY = function () {
   var path = process.env.MONGO_SSL_KEY;
-  return readfile(path);
+  if (stringToBool(process.env.MONGO_SSL_ENABLED) && path) {
+    return readfile(path);
+  }
+  return ;
 };
 
 var getSSLCERT = function () {
   var path = process.env.MONGO_SSL_CERT;
-  return readfile(path);
+  if (stringToBool(process.env.MONGO_SSL_ENABLED) && path) {
+    return readfile(path);
+  }
+  return ;
 };
 
 var getSSLCACERT = function () {
   var path = process.env.MONGO_SSL_CACERT;
-  return readfile(path);
+  if (stringToBool(process.env.MONGO_SSL_ENABLED) && path) {
+    return readfile(path);
+  }
+  return ;
 };
 
+var getMongoSSLAllowInvalidCertificates = function () {
+  return (stringToBool(process.env.MONGO_SSL_ENABLED) && stringToBool(process.env.MONGO_SSL_ALLOW_INVALID_CERTIFICATES));
+}
+
+var getMongoSSLAllowInvalidHostnames = function() {
+  return (stringToBool(process.env.MONGO_SSL_ENABLED) && stringToBool(process.env.MONGO_SSL_ALLOW_INVALID_HOSTNAMES))
+}
 /**
  *  @returns boolean to define the RS as a configsvr or not. Default is false
  */
@@ -151,12 +167,8 @@ module.exports = {
   loopSleepSeconds: process.env.MONGO_SIDECAR_SLEEP_SECONDS || 5,
   unhealthySeconds: process.env.MONGO_SIDECAR_UNHEALTHY_SECONDS || 15,
   mongoSSLEnabled: stringToBool(process.env.MONGO_SSL_ENABLED),
-  mongoSSLAllowInvalidCertificates: stringToBool(
-    process.env.MONGO_SSL_ALLOW_INVALID_CERTIFICATES
-  ),
-  mongoSSLAllowInvalidHostnames: stringToBool(
-    process.env.MONGO_SSL_ALLOW_INVALID_HOSTNAMES
-  ),
+  mongoSSLAllowInvalidCertificates: getMongoSSLAllowInvalidCertificates(),
+  mongoSSLAllowInvalidHostnames: getMongoSSLAllowInvalidHostnames(),
   mongoSSLCaCert: getSSLCACERT(),
   mongoSSLCert: getSSLCERT(),
   mongoSSLKey: getSSLKEY(),
