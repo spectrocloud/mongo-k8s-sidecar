@@ -1,4 +1,5 @@
 FROM --platform=linux/amd64 registry.access.redhat.com/ubi8/nodejs-18-minimal:1-65
+RUN rm /bin/nodemon
 
 WORKDIR /opt/spectrocloud/mongo-k8s-sidecar
 
