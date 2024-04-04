@@ -1,6 +1,6 @@
 .DEFAULT_GOAL:=help
 
-PROD_VERSION ?= 4.3.0
+PROD_VERSION ?= 4.3.1
 PROD_BUILD_ID:=$(shell date +%Y%m%d)
 PROJECT ?= spectro-dev-public
 IMG_TAG ?= ${PROD_VERSION}-${PROD_BUILD_ID}

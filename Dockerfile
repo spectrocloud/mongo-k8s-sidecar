@@ -1,4 +1,10 @@
-FROM --platform=linux/amd64 registry.access.redhat.com/ubi8/nodejs-18-minimal:1-65
+FROM --platform=linux/amd64 registry.access.redhat.com/ubi8/nodejs-18-minimal:1-99
+# FROM --platform=linux/amd64 registry.access.redhat.com/ubi8/nodejs-18-minimal:1-107 does not allow enabling fips mode
+# required to fix PSS-23472 npm uses ip version 2.0.0
+RUN npm install -g npm@10.5.0
+USER root
+RUN rm -rf /usr/lib/node_modules/npm
+USER 1001
 RUN rm /bin/nodemon
 
 WORKDIR /opt/spectrocloud/mongo-k8s-sidecar
